@@ -59,15 +59,15 @@
 (desktop-save-mode 1)
 
 ;; custom shortcuts
-(global-set-key (kbd "M-o") 'other-window)
-(global-set-key (kbd "M--") 'split-window-vertically)
+(global-set-key (kbd "M-o")  'other-window)
+(global-set-key (kbd "M--")  'split-window-vertically)
 (global-set-key (kbd "M-\\") 'split-window-horizontally)
-(global-set-key (kbd "M-0") 'delete-window)
+(global-set-key (kbd "M-0")  'delete-window)
 
-(global-set-key (kbd "C-c <up>") 'windmove-up)       ; Ctl + up arrow
-(global-set-key (kbd "C-c <down>") 'windmove-down)   ; Ctl + down arrow
+(global-set-key (kbd "C-c <up>")    'windmove-up)    ; Ctl + up arrow
+(global-set-key (kbd "C-c <down>")  'windmove-down)  ; Ctl + down arrow
 (global-set-key (kbd "C-c <right>") 'windmove-right) ; Ctl + right arrow
-(global-set-key (kbd "C-c <left>") 'windmove-left)   ; Ctl + left arrow
+(global-set-key (kbd "C-c <left>")  'windmove-left)  ; Ctl + left arrow
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
