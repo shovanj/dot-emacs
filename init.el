@@ -82,7 +82,7 @@
 
 
 ;; elpa repositories
-(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -90,3 +90,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+;; rhtml stuff
+(add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
+(require 'rhtml-mode)
+(add-hook 'rhtml-mode-hook
+          (lambda () (rinari-launch)))
+(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.rfpdf\\'" . rhtml-mode))
+(add-hook 'rhtml-mode-hook
+          (lambda () (rinari-launch)))
