@@ -79,7 +79,12 @@
  '(magit-diff-add ((t (:foreground "green"))))
  '(magit-item-highlight ((t nil))))
 
-
+;; custom methods
+;; insert date
+(defun sj-date ()
+  "Insert date at point."
+  (interactive)
+  (insert (format-time-string "%a %Y-%m-%d")))
 
 ;; elpa repositories
 (setq package-archives '(("ELPA" . "http://tromey.com/elpa/")
