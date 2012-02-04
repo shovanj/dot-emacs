@@ -64,8 +64,29 @@
 (global-set-key (kbd "M-\\") 'split-window-horizontally)
 (global-set-key (kbd "M-0") 'delete-window)
 
-(global-set-key (kbd "C-c <up>") 'windmove-up)  ; Ctl + up arrow
-(global-set-key (kbd "C-c <down>") 'windmove-down)  ; Ctl + down arrow
-(global-set-key (kbd "C-c <right>") 'windmove-right)  ; Ctl + right arrow
-(global-set-key (kbd "C-c <left>") 'windmove-left)  ; Ctl + left arrow
+(global-set-key (kbd "C-c <up>") 'windmove-up)       ; Ctl + up arrow
+(global-set-key (kbd "C-c <down>") 'windmove-down)   ; Ctl + down arrow
+(global-set-key (kbd "C-c <right>") 'windmove-right) ; Ctl + right arrow
+(global-set-key (kbd "C-c <left>") 'windmove-left)   ; Ctl + left arrow
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(diff-added ((t (:foreground "green"))))
+ '(diff-removed ((t (:foreground "red"))))
+ '(magit-diff-add ((t (:foreground "green"))))
+ '(magit-item-highlight ((t nil))))
+
+
+
+;; elpa repositories
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
