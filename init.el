@@ -109,8 +109,6 @@
 (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.rfpdf\\'" . rhtml-mode))
-(add-hook 'rhtml-mode-hook
-          (lambda () (rinari-launch)))
 
 ;; outline minor mode
 ;; You may also want to bind hide-body, hide-subtree, show-substree,
@@ -125,3 +123,49 @@
 (global-set-key (kbd "C-c j m") 'show-all)
 (global-set-key (kbd "C-c j k") 'show-entry)
 (global-set-key (kbd "C-c j j") 'hide-entry)
+
+;; =====================================================================;;
+;; ====================== ibuffer setup ================================;;
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(autoload 'ibuffer "ibuffer" "List buffers." t)
+
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ;; Programming Folders
+               ("Controllers"   (filename . "\\/app\\/controllers"))
+               ("Models"   (filename . "\\/app\\/models"))
+               ("Views"   (filename . "\\/app\\/views"))
+               ("Rspec" (filename . "\\/spec\\/"))
+               ("Helpers"   (filename . "\\/app\\/helpers"))
+               ("Migrations"   (filename . "\\/db\\/"))
+               ("Configurations"   (filename . "\\/config\\/"))
+               ("Lib"   (filename . "\\/lib\\/"))
+               ("View"   (name . "\\.rhtml"))
+               ("View"   (name . "\\.erb"))
+               ("Yaml"   (mode . yaml-mode))
+               ("Haml"   (mode . haml-mode))
+               ("Javascript"   (mode . javascript-mode))
+               ("Development"
+                (filename . "\\*Development\\*$"))
+               ("Ruby"   (mode . ruby-mode))
+               ;; Org Mode, Calendar
+               ("Org" (or
+                       (name . "^\\*Calendar\\*$")
+                       (name . "^diary$")
+                       (mode . org-mode)))
+               ("HTML"   (name . "\\.html"))
+               ("Emacs" (or
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*GNU Emacs\\*$")
+                         (name . "^\\.")
+                         (name . "\\.el")
+                         (name . "^\\*Messages\\*$")))
+               ("Dired" (mode . dired-mode))))))
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-switch-to-saved-filter-groups "default")))
+
+(setq ibuffer-show-empty-filter-groups nil)
+(setq ibuffer-expert t)
+;; ====================== ibuffer setup ================================;;
+;; =====================================================================;;
