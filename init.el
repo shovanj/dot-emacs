@@ -97,6 +97,9 @@
  )
 
 
+;; ruby mode
+(add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
+
 ;; rhtml stuff
 (add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
 (require 'rhtml-mode)
@@ -108,3 +111,17 @@
 (add-to-list 'auto-mode-alist '("\\.rfpdf\\'" . rhtml-mode))
 (add-hook 'rhtml-mode-hook
           (lambda () (rinari-launch)))
+
+;; outline minor mode
+;; You may also want to bind hide-body, hide-subtree, show-substree,
+;; show-all, show-children, ... to some keys easy folding and unfolding
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (outline-minor-mode)
+             (setq outline-regexp " *\\(def \\|class\\|module\\)")))
+
+;; custom shortcuts for outline minor mode
+(global-set-key (kbd "C-c j i") 'hide-body)
+(global-set-key (kbd "C-c j m") 'show-all)
+(global-set-key (kbd "C-c j k") 'show-entry)
+(global-set-key (kbd "C-c j j") 'hide-entry)
