@@ -169,3 +169,7 @@
 (setq ibuffer-expert t)
 ;; ====================== ibuffer setup ================================;;
 ;; =====================================================================;;
+
+(add-hook 'after-init-hook
+          '(lambda ()
+             (yas/load-directory "~/.emacs.d/snippets")))

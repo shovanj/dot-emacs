@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: logi
+# key: logi
+# group: general
+# --
+Rails.logger.info "***  AAA$1   $2:#{$2.inspect}  *** \n"
