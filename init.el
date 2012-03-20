@@ -26,7 +26,7 @@
 (global-hl-line-mode -1)
 
 ;; hide scroll bar mode
-(set-scroll-bar-mode nil)
+;; (set-scroll-bar-mode nil)
 ;; hide menu bar mode
 (menu-bar-mode -1)
 
@@ -99,7 +99,7 @@
 
 ;; ruby mode
 (add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
-
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 ;; rhtml stuff
 (add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
 (require 'rhtml-mode)
