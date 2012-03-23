@@ -25,8 +25,6 @@
 ;; highlight current line
 (global-hl-line-mode -1)
 
-;; hide scroll bar mode
-;; (set-scroll-bar-mode nil)
 ;; hide menu bar mode
 (menu-bar-mode -1)
 
@@ -173,3 +171,9 @@
 (add-hook 'after-init-hook
           '(lambda ()
              (yas/load-directory "~/.emacs.d/snippets")))
+
+
+(when window-system
+  (menu-bar-mode 1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1))
