@@ -203,3 +203,6 @@
 
 ; will reduce the number of messages that appear in the “*Messages*” window to 512.
 (setq message-log-max 512)
+
+; remove all source control hooks:
+(setq vc-handled-backends ())
