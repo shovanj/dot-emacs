@@ -182,3 +182,24 @@
 ;; Invoke M-x without the Alt key
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
+
+
+; Moving cursor down at bottom scrolls only a single line, not half page
+(setq scroll-step 1)
+(setq scroll-conservatively 5)
+
+; Don't want any auto saving
+(setq auto-save-default         nil)
+
+; Highlight search object
+(setq query-replace-highlight    t)
+; Highlight query object
+(setq search-highlight           t)
+; Keep mouse high-lightening
+(setq mouse-sel-retain-highlight t)
+
+; [Ctrl]-[L]
+(global-set-key "\C-l" 'goto-line)
+
+; will reduce the number of messages that appear in the “*Messages*” window to 512.
+(setq message-log-max 512)
