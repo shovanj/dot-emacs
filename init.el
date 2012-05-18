@@ -206,3 +206,6 @@
 
 ; remove all source control hooks:
 (setq vc-handled-backends ())
+
+; switch to current buffer for magit status
+(setq magit-status-buffer-switch-function 'switch-to-buffer)
