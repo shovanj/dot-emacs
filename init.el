@@ -209,3 +209,7 @@
 
 ; switch to current buffer for magit status
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
+
+
+; add /usr/local/bin to path
+(add-to-list 'exec-path "/usr/local/bin")
