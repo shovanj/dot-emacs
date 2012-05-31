@@ -92,7 +92,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-babel-load-languages (quote ((emacs-lisp . t) (ruby . t))))
+ '(org-src-fontify-natively t))
 
 
 ;; ruby mode
@@ -210,6 +211,9 @@
 ; switch to current buffer for magit status
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 
-
 ; add /usr/local/bin to path
 (add-to-list 'exec-path "/usr/local/bin")
+
+;; Setting rbenv path
+(setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (expand-file-name "/usr/local/bin:") (getenv "PATH")))
+(setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
