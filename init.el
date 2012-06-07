@@ -217,3 +217,7 @@
 ;; Setting rbenv path
 (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (expand-file-name "/usr/local/bin:") (getenv "PATH")))
 (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
+
+(add-to-list 'load-path "~/.emacs.d/vendor/expand-region")
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
