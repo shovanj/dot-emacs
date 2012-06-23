@@ -87,11 +87,17 @@
 ;; elpa repositories
 (setq package-archives '(("ELPA" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
+
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files (quote ("~/Dropbox/org/projects/home.org" "~/Dropbox/org/todos.org")))
  '(org-babel-load-languages (quote ((emacs-lisp . t) (ruby . t))))
  '(org-src-fontify-natively t))
 
@@ -177,8 +183,7 @@
 (when window-system
   (menu-bar-mode 1)
   (scroll-bar-mode -1)
-  (tool-bar-mode -1)
-  (set-frame-height (selected-frame) 74))
+  (tool-bar-mode -1))
 
 ;; Invoke M-x without the Alt key
 (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -221,3 +226,7 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/expand-region")
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+(global-set-key (kbd "M-.") 'etags-select-find-tag-at-point)
+(global-set-key (kbd "M-?") 'etags-select-find-tag)
+
