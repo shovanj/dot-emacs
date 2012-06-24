@@ -56,16 +56,6 @@
 ;; call desktop-save to save desktop for each project/location
 (desktop-save-mode 1)
 
-;; custom shortcuts
-(global-set-key (kbd "M-o")  'other-window)
-(global-set-key (kbd "M--")  'split-window-vertically)
-(global-set-key (kbd "M-\\") 'split-window-horizontally)
-(global-set-key (kbd "M-0")  'delete-window)
-
-(global-set-key (kbd "C-c <up>")    'windmove-up)    ; Ctl + up arrow
-(global-set-key (kbd "C-c <down>")  'windmove-down)  ; Ctl + down arrow
-(global-set-key (kbd "C-c <right>") 'windmove-right) ; Ctl + right arrow
-(global-set-key (kbd "C-c <left>")  'windmove-left)  ; Ctl + left arrow
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -123,15 +113,10 @@
              (outline-minor-mode)
              (setq outline-regexp " *\\(def \\|class\\|module\\)")))
 
-;; custom shortcuts for outline minor mode
-(global-set-key (kbd "C-c j i") 'hide-body)
-(global-set-key (kbd "C-c j m") 'show-all)
-(global-set-key (kbd "C-c j k") 'show-entry)
-(global-set-key (kbd "C-c j j") 'hide-entry)
 
 ;; =====================================================================;;
 ;; ====================== ibuffer setup ================================;;
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 (autoload 'ibuffer "ibuffer" "List buffers." t)
 
 (setq ibuffer-saved-filter-groups
@@ -185,9 +170,6 @@
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
-;; Invoke M-x without the Alt key
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-m" 'execute-extended-command)
 
 
 ; Moving cursor down at bottom scrolls only a single line, not half page
@@ -204,8 +186,6 @@
 ; Keep mouse high-lightening
 (setq mouse-sel-retain-highlight t)
 
-; [Ctrl]-[L]
-(global-set-key "\C-l" 'goto-line)
 
 ; will reduce the number of messages that appear in the “*Messages*” window to 512.
 (setq message-log-max 512)
@@ -225,8 +205,52 @@
 
 (add-to-list 'load-path "~/.emacs.d/vendor/expand-region")
 (require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
 
+
+
+(add-hook 'org-load-hook
+          (lambda ()
+            (local-set-key (kbd "C-c a") 'org-agenda)
+            )
+          )
+
+;; =============   global keys ==================
+
+;; etags-select
 (global-set-key (kbd "M-.") 'etags-select-find-tag-at-point)
 (global-set-key (kbd "M-?") 'etags-select-find-tag)
 
+;; window keys
+(global-set-key (kbd "M-o")  'other-window)
+(global-set-key (kbd "M--")  'split-window-vertically)
+(global-set-key (kbd "M-\\") 'split-window-horizontally)
+(global-set-key (kbd "M-0")  'delete-window)
+
+;; window movement keys
+(global-set-key (kbd "C-c <up>")    'windmove-up)    ; Ctl + up arrow
+(global-set-key (kbd "C-c <down>")  'windmove-down)  ; Ctl + down arrow
+(global-set-key (kbd "C-c <right>") 'windmove-right) ; Ctl + right arrow
+(global-set-key (kbd "C-c <left>")  'windmove-left)  ; Ctl + left arrow
+
+
+;; outline minor mode keys
+(global-set-key (kbd "C-c j i") 'hide-body)
+(global-set-key (kbd "C-c j m") 'show-all)
+(global-set-key (kbd "C-c j k") 'show-entry)
+(global-set-key (kbd "C-c j j") 'hide-entry)
+
+;; ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Invoke M-x without the Alt key
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-c\C-m" 'execute-extended-command)
+
+; [Ctrl]-[L]
+(global-set-key "\C-l" 'goto-line)
+
+;; expand-region
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+;; magit-status
+(global-set-key (kbd "C-x g") 'magit-status)
