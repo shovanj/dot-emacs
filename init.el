@@ -104,7 +104,8 @@
 (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.rfpdf\\'" . rhtml-mode))
-
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 ;; outline minor mode
 ;; You may also want to bind hide-body, hide-subtree, show-substree,
 ;; show-all, show-children, ... to some keys easy folding and unfolding
@@ -254,3 +255,5 @@
 
 ;; magit-status
 (global-set-key (kbd "C-x g") 'magit-status)
+
+(setq js-indent-level 2)
