@@ -44,7 +44,8 @@
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
 ;; display trailing whitespaces in a line
-(setq-default show-trailing-whitespace t)
+;; (setq-default show-trailing-whitespace t)
+(setq-default show-trailing-whitespace nil)
 
 ;; disable C-z
 (global-unset-key "\C-z")
@@ -257,3 +258,14 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (setq js-indent-level 2)
+
+(defun wicked/php-mode-init ()
+  "Set some buffer-local variables."
+  (setq case-fold-search t)
+  (setq indent-tabs-mode nil)
+  (setq-default indent-tabs-mode nil)
+  (setq php-mode-force-pear nil)
+  (setq fill-column 78)
+  (setq c-basic-offset 4)
+  (setq mumamo-background-colors nil))
+(add-hook 'php-mode-hook 'wicked/php-mode-init)
