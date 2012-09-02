@@ -124,6 +124,7 @@
 (setq ibuffer-saved-filter-groups
       (quote (("default"
                ;; Programming Folders
+               ("Terminals" (mode . term-mode))
                ("Controllers"   (filename . "\\/app\\/controllers"))
                ("Models"   (filename . "\\/app\\/models"))
                ("Views"   (filename . "\\/app\\/views"))
@@ -255,7 +256,9 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; magit-status
-(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c m") 'magit-status)
+
+
 
 (setq js-indent-level 2)
 
@@ -300,3 +303,17 @@
   )
 
 (add-hook 'coffee-mode-hook 'coffee-custom)
+
+
+(global-set-key (kbd "C-c d") 'desktop-change-dir)
+(global-set-key (kbd "C-c t") 'ansi-term)
+(global-set-key (kbd "C-c e") 'eval-region)
+
+(add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+
+
+(add-to-list 'load-path "~/.emacs.d/vendor/auto-complete/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete//ac-dict")
+(ac-config-default)
