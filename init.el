@@ -90,7 +90,8 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files (quote ("~/Dropbox/org/projects/home.org" "~/Dropbox/org/todos.org")))
  '(org-babel-load-languages (quote ((emacs-lisp . t) (ruby . t))))
- '(org-src-fontify-natively t))
+ '(org-src-fontify-natively t)
+ '(sr-speedbar-right-side nil))
 
 
 ;; ruby mode
@@ -310,6 +311,7 @@
 (global-set-key (kbd "C-c e") 'eval-region)
 
 (add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
+
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 
 
@@ -317,3 +319,24 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete//ac-dict")
 (ac-config-default)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/sr-speedbar/")
+(require 'sr-speedbar)
+
+
+
+(setq speedbar-frame-parameters
+      '((minibuffer)
+	(width . 40)G
+	(border-width . 0)
+	(menu-bar-lines . 0)
+	(tool-bar-lines . 0)
+	(unsplittable . t)
+	(left-fringe . 0)))
+
+(setq speedbar-use-images nil)
+(setq sr-speedbar-right-side nil)
+(setq sr-speedbar-width-console 40)
+(setq speedbar-hide-button-brackets-flag t)
+
+
