@@ -88,10 +88,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ack-and-a-half-prompt-for-directory t)
+ '(minimap-width-fraction 0.1)
+ '(minimap-window-location (quote right))
  '(org-agenda-files (quote ("~/Dropbox/org/projects/home.org" "~/Dropbox/org/todos.org")))
  '(org-babel-load-languages (quote ((emacs-lisp . t) (ruby . t))))
  '(org-src-fontify-natively t)
- '(sr-speedbar-right-side nil))
+ '(speedbar-use-images nil)
+ '(sr-speedbar-right-side nil)
+ '(sr-speedbar-skip-other-window-p t))
 
 
 ;; ruby mode
@@ -263,16 +268,16 @@
 
 (setq js-indent-level 2)
 
-(defun wicked/php-mode-init ()
-  "Set some buffer-local variables."
-  (setq case-fold-search t)
-  (setq indent-tabs-mode nil)
-  (setq-default indent-tabs-mode nil)
-  (setq php-mode-force-pear nil)
-  (setq fill-column 78)
-  (setq c-basic-offset 4)
-  (setq mumamo-background-colors nil))
-(add-hook 'php-mode-hook 'wicked/php-mode-init)
+;; (defun wicked/php-mode-init ()
+;;   "Set some buffer-local variables."
+;;   (setq case-fold-search t)
+;;   (setq indent-tabs-mode nil)
+;;   (setq-default indent-tabs-mode nil)
+;;   (setq php-mode-force-pear nil)
+;;   (setq fill-column 78)
+;;   (setq c-basic-offset 4)
+;;   (setq mumamo-background-colors nil))
+;; (add-hook 'php-mode-hook 'wicked/php-mode-init)
 
 
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
@@ -320,23 +325,16 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete//ac-dict")
 (ac-config-default)
 
-(add-to-list 'load-path "~/.emacs.d/vendor/sr-speedbar/")
-(require 'sr-speedbar)
-
-
-
-(setq speedbar-frame-parameters
-      '((minibuffer)
-	(width . 40)G
-	(border-width . 0)
-	(menu-bar-lines . 0)
-	(tool-bar-lines . 0)
-	(unsplittable . t)
-	(left-fringe . 0)))
 
 (setq speedbar-use-images nil)
-(setq sr-speedbar-right-side nil)
-(setq sr-speedbar-width-console 40)
-(setq speedbar-hide-button-brackets-flag t)
+;; (setq speedbar-hide-button-brackets-flag t)
 
+(make-face 'speedbar-face)
+(set-face-font 'speedbar-face "Monospace-12")
+(setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
 
+;; (global-set-key (kbd "C-c s") 'sr-speedbar-toggle)
+
+(custom-set-variables
+ '(speedbar-show-unknown-files t)
+)
