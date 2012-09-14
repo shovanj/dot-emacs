@@ -315,6 +315,8 @@
 (global-set-key (kbd "C-c t") 'ansi-term)
 (global-set-key (kbd "C-c e") 'eval-region)
 
+(global-set-key (kbd "s-f") 'ns-toggle-fullscreen)
+
 (add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
 
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
@@ -327,14 +329,17 @@
 
 
 (setq speedbar-use-images nil)
-;; (setq speedbar-hide-button-brackets-flag t)
 
 (make-face 'speedbar-face)
 (set-face-font 'speedbar-face "Monospace-12")
 (setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
 
-;; (global-set-key (kbd "C-c s") 'sr-speedbar-toggle)
-
 (custom-set-variables
  '(speedbar-show-unknown-files t)
 )
+
+
+;; Display ido results vertically, rather than horizontally
+(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+(defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
+(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
