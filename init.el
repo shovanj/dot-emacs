@@ -63,7 +63,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(diff-added ((t (:foreground "green"))))
+ '(diff-added ((t (:foreground "green3"))))
  '(diff-removed ((t (:foreground "red"))))
  '(magit-diff-add ((t (:foreground "green"))))
  '(magit-item-highlight ((t nil))))
@@ -94,6 +94,7 @@
  '(org-agenda-files (quote ("~/Dropbox/org/projects/home.org" "~/Dropbox/org/todos.org")))
  '(org-babel-load-languages (quote ((emacs-lisp . t) (ruby . t))))
  '(org-src-fontify-natively t)
+ '(speedbar-show-unknown-files t)
  '(speedbar-use-images nil)
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t))
@@ -262,11 +263,22 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; magit-status
-(global-set-key (kbd "C-c m") 'magit-status)
 
 
 
-(setq js-indent-level 2)
+
+(setq js-indent-level 4)
+(add-hook 'js-mode-hook
+          (lambda ()
+            ;; Scan the file for nested code blocks
+            (imenu-add-menubar-index)
+            ;; Activate the folding mode
+            (hs-minor-mode t)))
+;; Show-hide
+(global-set-key (kbd "C-c <C-right>") 'hs-show-block)
+(global-set-key (kbd "C-c <C-down>") 'hs-show-all)
+(global-set-key (kbd "C-c <C-left>") 'hs-hide-block)
+(global-set-key (kbd "C-c <C-up>") 'hs-hide-all)
 
 ;; (defun wicked/php-mode-init ()
 ;;   "Set some buffer-local variables."
@@ -316,6 +328,8 @@
 (global-set-key (kbd "C-c e") 'eval-region)
 
 (global-set-key (kbd "s-f") 'ns-toggle-fullscreen)
+(global-set-key (kbd "s-m") 'magit-status)
+(global-set-key (kbd "C-c m") 'magit-status)
 
 (add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
 
@@ -334,12 +348,12 @@
 (set-face-font 'speedbar-face "Monospace-12")
 (setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
 
-(custom-set-variables
- '(speedbar-show-unknown-files t)
-)
+
 
 
 ;; Display ido results vertically, rather than horizontally
 (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
 (defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
 (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
+
+(require 'autopair)
