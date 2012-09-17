@@ -65,6 +65,7 @@
  ;; If there is more than one, they won't work right.
  '(diff-added ((t (:foreground "green3"))))
  '(diff-removed ((t (:foreground "red"))))
+ '(highlight-80+ ((t (:background "gray84"))))
  '(magit-diff-add ((t (:foreground "green"))))
  '(magit-item-highlight ((t nil))))
 
@@ -143,6 +144,8 @@
                ("View"   (name . "\\.rhtml"))
                ("View"   (name . "\\.erb"))
                ("Yaml"   (mode . yaml-mode))
+               ("Cucumber"   (mode . feature-mode))
+               ("Coffee"   (mode . coffee-mode))
                ("Haml"   (mode . haml-mode))
                ("Javascript"   (mode . javascript-mode))
                ("Development"
@@ -357,3 +360,5 @@
 (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
 
 (require 'autopair)
+
+
