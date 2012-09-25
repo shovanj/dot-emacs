@@ -63,11 +63,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(diff-added ((t (:foreground "green3"))))
- '(diff-removed ((t (:foreground "red"))))
- '(highlight-80+ ((t (:background "gray84"))))
- '(magit-diff-add ((t (:foreground "green"))))
- '(magit-item-highlight ((t nil))))
+ '(diff-added ((t (:foreground "green3"))) t)
+ '(diff-removed ((t (:foreground "red"))) t)
+ '(highlight-80+ ((t (:background "gray84"))) t)
+ '(magit-diff-add ((t (:foreground "green"))) t)
+ '(magit-item-highlight ((t nil)) t)
+ '(mode-line ((t (:background "gray27" :foreground "white" :box (:line-width -1 :color "gray27") :height 1.1 :family "Menlo")))))
 
 ;; custom methods
 ;; insert date
@@ -96,7 +97,7 @@
  '(org-babel-load-languages (quote ((emacs-lisp . t) (ruby . t))))
  '(org-src-fontify-natively t)
  '(speedbar-show-unknown-files t)
- '(speedbar-use-images nil)
+ '(speedbar-use-images nil t)
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t))
 
@@ -332,6 +333,9 @@
 
 (global-set-key (kbd "s-f") 'ns-toggle-fullscreen)
 (global-set-key (kbd "s-m") 'magit-status)
+(global-set-key (kbd "<s-left>") 'previous-buffer)
+(global-set-key (kbd "<s-right>") 'next-buffer)
+
 (global-set-key (kbd "C-c m") 'magit-status)
 
 (add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
@@ -360,5 +364,72 @@
 (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
 
 (require 'autopair)
+
+
+(load-theme 'tango-dark t)
+
+;; use setq-default to set it for /all/ modes
+(setq-default mode-line-format
+  (list
+
+    ;; the buffer name; the file name as a tool tip
+    '(:eval (propertize "%b " 'face 'font-lock-keyword-face
+        'help-echo (buffer-file-name)))
+
+    '(vc-mode vc-mode)
+
+    ;; line and column
+    "(" ;; '%02' to set to 2 chars at least; prevents flickering
+      (propertize "%02l" 'face 'font-lock-type-face) ","
+      (propertize "%02c" 'face 'font-lock-type-face) 
+    ") "
+
+    ;; relative position, size of file
+    "["
+    (propertize "%p" 'face 'font-lock-constant-face) ;; % above top
+    "/"
+    (propertize "%I" 'face 'font-lock-constant-face) ;; size
+    "] "
+
+    ;; the current major mode for the buffer.
+    "["
+
+    '(:eval (propertize "%m" 'face 'font-lock-string-face
+              'help-echo buffer-file-coding-system))
+    "] "
+
+
+    "[" ;; insert vs overwrite mode, input-method in a tooltip
+    '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
+              'face 'font-lock-preprocessor-face
+              'help-echo (concat "Buffer is in "
+                           (if overwrite-mode "overwrite" "insert") " mode")))
+
+
+    ;; is this buffer read-only?
+    '(:eval (when buffer-read-only
+              (concat ","  (propertize "RO"
+                             'face 'font-lock-type-face
+                             'help-echo "Buffer is read-only"))))  
+    "] "
+
+    ;; add the time, with the date and the emacs uptime in the tooltip
+    '(:eval (propertize (format-time-string "%H:%M")
+              'help-echo
+              (concat (format-time-string "%c; ")
+                      (emacs-uptime "Uptime:%hh"))))
+    " --"
+    ;; i don't want to see minor-modes; but if you want, uncomment this:
+    minor-mode-alist  ;; list of minor modes
+
+    ;; was this buffer modified since the last save?
+    '(:eval (when (buffer-modified-p)
+              (concat " "  (propertize "Mod "
+                             'face 'font-lock-warning-face
+                             'help-echo "Buffer has been modified"))))
+
+
+    "%-" ;; fill with '-'
+    ))
 
 
