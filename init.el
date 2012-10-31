@@ -63,12 +63,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(diff-added ((t (:foreground "green3"))) t)
- '(diff-removed ((t (:foreground "red"))) t)
+ '(diff-added ((t (:foreground "green3"))))
+ '(diff-removed ((t (:foreground "red"))))
+ '(erb-exec-face ((t nil)))
+ '(erb-face ((t nil)))
+ '(erb-out-delim-face ((t (:background "LightPink1" :foreground "black"))))
+ '(erb-out-face ((t nil)))
  '(highlight-80+ ((t (:background "gray84"))) t)
- '(magit-diff-add ((t (:foreground "green"))) t)
- '(magit-item-highlight ((t nil)) t)
- '(mode-line ((t (:background "gray27" :foreground "white" :box (:line-width -1 :color "gray27") :height 1.1 :family "Menlo")))))
+ '(magit-diff-add ((t (:foreground "green"))))
+ '(magit-diff-del ((t (:foreground "violet red"))))
+ '(magit-item-highlight ((t nil))))
+ ;; '(mode-line ((t (:background "#FCF6E3" :foreground "white" :box (:line-width -1 :color "#FCF6E3") :height 132 :family "Inconsolata")))))
+
+(set-face-attribute 'default nil
+                    :family "Inconsolata" :height 135 :weight 'normal)
 
 ;; custom methods
 ;; insert date
@@ -96,10 +104,12 @@
  '(org-agenda-files (quote ("~/Dropbox/org/projects/home.org" "~/Dropbox/org/todos.org")))
  '(org-babel-load-languages (quote ((emacs-lisp . t) (ruby . t))))
  '(org-src-fontify-natively t)
+ '(show-paren-mode t)
  '(speedbar-show-unknown-files t)
  '(speedbar-use-images nil t)
  '(sr-speedbar-right-side nil)
- '(sr-speedbar-skip-other-window-p t))
+ '(sr-speedbar-skip-other-window-p t)
+ '(tool-bar-mode nil))
 
 
 ;; ruby mode
@@ -333,6 +343,7 @@
 
 (global-set-key (kbd "s-f") 'ns-toggle-fullscreen)
 (global-set-key (kbd "s-m") 'magit-status)
+(global-set-key (kbd "s-b") 'ibuffer)
 (global-set-key (kbd "<s-left>") 'previous-buffer)
 (global-set-key (kbd "<s-right>") 'next-buffer)
 
@@ -352,8 +363,8 @@
 (setq speedbar-use-images nil)
 
 (make-face 'speedbar-face)
-(set-face-font 'speedbar-face "Monospace-12")
-(setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
+;; (set-face-font 'speedbar-face "Monaco-12")
+;; (setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
 
 
 
@@ -366,7 +377,7 @@
 (require 'autopair)
 
 
-(load-theme 'tango-dark t)
+
 
 ;; use setq-default to set it for /all/ modes
 (setq-default mode-line-format
@@ -433,3 +444,11 @@
     ))
 
 
+
+
+(require 'yaml-mode)
+
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
+(load-theme 'solarized-light t)
+;; (load-theme 'tango-dark t)
