@@ -339,14 +339,8 @@
 (global-set-key (kbd "C-c d") 'desktop-change-dir)
 (global-set-key (kbd "C-c t") 'ansi-term)
 (global-set-key (kbd "C-c e") 'eval-region)
-
-(global-set-key (kbd "s-f") 'ns-toggle-fullscreen)
-(global-set-key (kbd "s-m") 'magit-status)
-(global-set-key (kbd "s-b") 'ibuffer)
-(global-set-key (kbd "<s-left>") 'previous-buffer)
-(global-set-key (kbd "<s-right>") 'next-buffer)
-
 (global-set-key (kbd "C-c m") 'magit-status)
+(global-set-key (kbd "C-c l") 'magit-log)
 
 (add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
 
@@ -378,6 +372,12 @@
 (require 'yaml-mode)
 
 (when window-system
+  (global-set-key (kbd "s-f") 'ns-toggle-fullscreen)
+  (global-set-key (kbd "s-m") 'magit-status)
+  (global-set-key (kbd "s-b") 'ibuffer)
+  (global-set-key (kbd "<s-left>") 'previous-buffer)
+  (global-set-key (kbd "<s-right>") 'next-buffer)
+
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
   (load-theme 'solarized-light t)
   ;; (load-theme 'tango-dark t)
