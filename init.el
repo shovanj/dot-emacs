@@ -125,6 +125,7 @@
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . rhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 ;; outline minor mode
 ;; You may also want to bind hide-body, hide-subtree, show-substree,
 ;; show-all, show-children, ... to some keys easy folding and unfolding
