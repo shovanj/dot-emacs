@@ -29,9 +29,9 @@
 (menu-bar-mode -1)
 
 ;; background color for modeline
-(set-face-background 'modeline "yellow")
+;; (set-face-background 'modeline "yellow")
 ;; foreground color for modeline
-(set-face-foreground 'modeline "black")
+;; (set-face-foreground 'modeline "black")
 ;; background color for highlighted region
 (set-face-background 'region "cyan")
 
@@ -126,6 +126,9 @@
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+
 ;; outline minor mode
 ;; You may also want to bind hide-body, hide-subtree, show-substree,
 ;; show-all, show-children, ... to some keys easy folding and unfolding
@@ -345,7 +348,7 @@
 
 (add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
 
-(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+
 
 
 (add-to-list 'load-path "~/.emacs.d/vendor/auto-complete/")
@@ -383,3 +386,17 @@
   (load-theme 'solarized-light t)
   ;; (load-theme 'tango-dark t)
   )
+
+
+
+(when (and (eq system-type 'darwin) window-system)
+  ;; preview for Marked.app
+  ;; https://github.com/JEG2/dotfiles/blob/master/emacs.d/packages.el#L121
+  (defun osx-markdown-preview ()
+    (interactive)
+    (save-buffer)
+    (call-process "open" nil nil nil "-a" "Marked.app" (buffer-file-name)))
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-c o p") 'osx-markdown-preview))))
+
