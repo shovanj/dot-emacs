@@ -400,3 +400,22 @@
             (lambda ()
               (local-set-key (kbd "C-c o p") 'osx-markdown-preview))))
 
+(defun senny-ruby-interpolate ()
+  "In a double quoted string, interpolate."
+  (interactive)
+  (insert "#")
+  (when (and
+         (looking-back "\".*")
+         (looking-at ".*\""))
+    (insert "{}")
+    (backward-char 1)))
+
+(eval-after-load 'ruby-mode
+  '(progn
+     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
+
+(require 'flymake-ruby)
+(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+(add-hook 'ruby-mode-hook 'ruby-end-mode)
+
+(autopair-global-mode t)
