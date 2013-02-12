@@ -99,6 +99,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ack-and-a-half-prompt-for-directory t)
+ '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
  '(minimap-width-fraction 0.1)
  '(minimap-window-location (quote right))
  '(org-agenda-files (quote ("~/Dropbox/org/projects/home.org" "~/Dropbox/org/todos.org")))
@@ -128,6 +129,8 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
 
 ;; outline minor mode
 ;; You may also want to bind hide-body, hide-subtree, show-substree,
@@ -343,7 +346,7 @@
 (global-set-key (kbd "C-c d") 'desktop-change-dir)
 (global-set-key (kbd "C-c t") 'ansi-term)
 (global-set-key (kbd "C-c e") 'eval-region)
-(global-set-key (kbd "C-c m") 'magit-status)
+(global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c l") 'magit-log)
 
 (add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
@@ -376,17 +379,18 @@
 (require 'yaml-mode)
 
 (when window-system
-  (global-set-key (kbd "s-f") 'ns-toggle-fullscreen)
-  (global-set-key (kbd "s-m") 'magit-status)
-  (global-set-key (kbd "s-b") 'ibuffer)
+  (global-set-key (kbd "s-g") 'magit-status)
+  (global-set-key (kbd "s-b") 'switch-to-buffer)
   (global-set-key (kbd "<s-left>") 'previous-buffer)
   (global-set-key (kbd "<s-right>") 'next-buffer)
 
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
-  (load-theme 'solarized-light t)
-  ;; (load-theme 'tango-dark t)
+  ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
+  ;;(load-theme 'solarized-light t)
   )
-
+(when system-type 'darwin
+      (load-theme 'tsdh-dark t)
+ 
+)
 
 
 (when (and (eq system-type 'darwin) window-system)
@@ -400,22 +404,29 @@
             (lambda ()
               (local-set-key (kbd "C-c o p") 'osx-markdown-preview))))
 
-(defun senny-ruby-interpolate ()
-  "In a double quoted string, interpolate."
-  (interactive)
-  (insert "#")
-  (when (and
-         (looking-back "\".*")
-         (looking-at ".*\""))
-    (insert "{}")
-    (backward-char 1)))
+;; (defun senny-ruby-interpolate ()
+;;   "In a double quoted string, interpolate."
+;;   (interactive)
+;;   (insert "#")
+;;   (when (and
+;;          (looking-back "\".*")
+;;          (looking-at ".*\""))
+;;     (insert "{}")
+;;     (backward-char 1)))
 
-(eval-after-load 'ruby-mode
-  '(progn
-     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
+;; (eval-after-load 'ruby-mode
+;;   '(progn
+;;      (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
 
 (require 'flymake-ruby)
 (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 (add-hook 'ruby-mode-hook 'ruby-end-mode)
 
 (autopair-global-mode t)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/emacs-nav-49")
+(require 'nav)
+(nav-disable-overeager-window-splitting)
+;; Optional: set up a quick key to toggle nav
+(global-set-key [f8] 'nav-toggle)
+
