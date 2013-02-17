@@ -130,6 +130,7 @@
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.eco\\'" . rhtml-mode))
 
 
 ;; outline minor mode
@@ -430,3 +431,9 @@
 ;; Optional: set up a quick key to toggle nav
 (global-set-key [f8] 'nav-toggle)
 
+
+(add-hook 'ruby-mode-hook 'projectile-mode)
+(add-hook 'rhtml-mode-hook 'projectile-mode)
+(add-hook 'yaml-mode-hook 'projectile-mode)
+(add-hook 'coffee-mode-hook 'projectile-mode)
+(add-hook 'js-mode-hook 'projectile-mode)
