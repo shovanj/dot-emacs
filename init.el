@@ -28,10 +28,6 @@
 ;; hide menu bar mode
 (menu-bar-mode -1)
 
-;; background color for modeline
-;; (set-face-background 'modeline "yellow")
-;; foreground color for modeline
-;; (set-face-foreground 'modeline "black")
 ;; background color for highlighted region
 (set-face-background 'region "cyan")
 
@@ -63,16 +59,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(diff-added ((t (:foreground "green3"))))
- '(diff-removed ((t (:foreground "red"))))
+ '(diff-added ((t (:foreground "green3"))) t)
+ '(diff-removed ((t (:foreground "red"))) t)
  '(erb-exec-face ((t nil)))
  '(erb-face ((t nil)))
  '(erb-out-delim-face ((t (:background "LightPink1" :foreground "black"))))
  '(erb-out-face ((t nil)))
- '(highlight-80+ ((t (:background "gray84"))) t)
- '(magit-diff-add ((t (:foreground "green"))))
- '(magit-diff-del ((t (:foreground "violet red"))))
- '(magit-item-highlight ((t nil))))
+ '(highlight-80+ ((t (:background "gray84"))))
+ '(magit-diff-add ((t (:foreground "green"))) t)
+ '(magit-diff-del ((t (:foreground "violet red"))) t)
+ '(magit-item-highlight ((t nil)) t))
  ;; '(mode-line ((t (:background "#FCF6E3" :foreground "white" :box (:line-width -1 :color "#FCF6E3") :height 132 :family "Inconsolata")))))
 
 (set-face-attribute 'default nil
@@ -100,6 +96,7 @@
  ;; If there is more than one, they won't work right.
  '(ack-and-a-half-prompt-for-directory t)
  '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(highlight-80+-columns 100)
  '(minimap-width-fraction 0.1)
  '(minimap-window-location (quote right))
  '(org-agenda-files (quote ("~/Dropbox/org/projects/home.org" "~/Dropbox/org/todos.org")))
@@ -364,7 +361,7 @@
 (setq speedbar-use-images nil)
 
 (make-face 'speedbar-face)
-;; (set-face-font 'speedbar-face "Monaco-12")
+
 ;; (setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
 
 
@@ -389,10 +386,15 @@
   ;;(load-theme 'solarized-light t)
   )
 (when system-type 'darwin
-      (load-theme 'tsdh-dark t)
+      ;; (load-theme 'wheatgrass t)
+      ;; (set-face-font 'speedbar-face "Monaco-12")
+      ;; background color for modeline
+      (set-face-background 'mode-line "gray27")
+      ;; foreground color for modeline
+      (set-face-foreground 'mode-line "white")
  
 )
-
+;; (set-face-font 'mode-line "Monaco-12")
 
 (when (and (eq system-type 'darwin) window-system)
   ;; preview for Marked.app
@@ -421,7 +423,7 @@
 
 (require 'flymake-ruby)
 (add-hook 'ruby-mode-hook 'flymake-ruby-load)
-(add-hook 'ruby-mode-hook 'ruby-end-mode)
+;; (add-hook 'ruby-mode-hook 'ruby-end-mode)
 
 (autopair-global-mode t)
 
@@ -437,3 +439,14 @@
 (add-hook 'yaml-mode-hook 'projectile-mode)
 (add-hook 'coffee-mode-hook 'projectile-mode)
 (add-hook 'js-mode-hook 'projectile-mode)
+
+(add-hook 'coffee-mode-hook 'auto-complete-mode)
+
+
+
+;; (add-to-list 'load-path "~/.emacs.d/vendor/ruby-mode")
+
+ (require 'ob-tangle) 
+
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
