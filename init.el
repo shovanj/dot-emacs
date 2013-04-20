@@ -103,8 +103,9 @@
  '(org-babel-load-languages (quote ((emacs-lisp . t) (ruby . t))))
  '(org-src-fontify-natively t)
  '(show-paren-mode t)
+ '(speedbar-default-position (quote left))
  '(speedbar-show-unknown-files t)
- '(speedbar-use-images nil t)
+ '(speedbar-use-images nil)
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t))
 
@@ -381,6 +382,7 @@
   (global-set-key (kbd "s-b") 'switch-to-buffer)
   (global-set-key (kbd "<s-left>") 'previous-buffer)
   (global-set-key (kbd "<s-right>") 'next-buffer)
+  (global-set-key (kbd "s-t") 'projectile-find-file)
 
   ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
   ;;(load-theme 'solarized-light t)
@@ -434,11 +436,6 @@
 (global-set-key [f8] 'nav-toggle)
 
 
-(add-hook 'ruby-mode-hook 'projectile-mode)
-(add-hook 'rhtml-mode-hook 'projectile-mode)
-(add-hook 'yaml-mode-hook 'projectile-mode)
-(add-hook 'coffee-mode-hook 'projectile-mode)
-(add-hook 'js-mode-hook 'projectile-mode)
 
 (add-hook 'coffee-mode-hook 'auto-complete-mode)
 
@@ -450,3 +447,18 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+(setq ring-bell-function 'ignore)
+
+
+;; (setq projectile-enable-caching nil)
+;; (setq projectile-require-project-root nil)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/")
+(require 'projectile)
+(add-hook 'ruby-mode-hook 'projectile-mode)
+(add-hook 'rhtml-mode-hook 'projectile-mode)
+(add-hook 'yaml-mode-hook 'projectile-mode)
+(add-hook 'coffee-mode-hook 'projectile-mode)
+(add-hook 'js-mode-hook 'projectile-mode)
+
