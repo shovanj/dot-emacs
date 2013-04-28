@@ -168,7 +168,7 @@
 	       [(20120331 1344)
 		nil "run a shell command when saving a buffer [source: github]" single])
  (wacspace .
-	   [(20130427 1944)
+	   [(20130428 1224)
 	    ((dash
 	      (1 2 0))
 	     (cl-lib
@@ -699,8 +699,8 @@
        [(20121012 1733)
 	nil "No description available. [source: github]" tar])
  (showcss-mode .
-	       [(20130325 1641)
-		nil "Show the css of the html attribute the cursor is on [source: github]" single])
+	       [(20130428 1617)
+		nil "No description available. [source: github]" tar])
  (shimbun .
 	  [(20120719 338)
 	   nil "interfacing with web newspapers [source: github]" tar])
@@ -749,7 +749,7 @@
 	     (0 21)))
 	   "Paste to the web via scp. [source: wiki]" single])
  (sclang-extensions .
-		    [(20130428 2349)
+		    [(20130429 303)
 		     ((auto-complete
 		       (1 4 0))
 		      (s
@@ -1269,7 +1269,7 @@
 	[(20130127 1751)
 	 nil "Oauth library. [source: github]" tar])
  (o-blog .
-	 [(20130208 1935)
+	 [(20130428 1049)
 	  nil "Org-blog exporter [source: github]" tar])
  (nyan-mode .
 	    [(20120710 1922)
@@ -1331,6 +1331,9 @@
  (mustache-mode .
 		[(20110927 1253)
 		 nil "A major mode for editing Mustache files. [source: github]" single])
+ (mustache .
+	   [(20130428 1035)
+	    nil "No description available. [source: github]" tar])
  (multiple-cursors .
 		   [(20130408 842)
 		    nil "Multiple cursors for Emacs. [source: github]" tar])
@@ -1478,7 +1481,7 @@
 			       [(20130328 1436)
 				nil "Advice for magit-log-edit-commit [source: github]" single])
  (magit .
-	[(20130409 500)
+	[(20130416 2316)
 	 ((cl-lib
 	   (0 2)))
 	 "Control Git from Emacs. [source: github]" tar])
@@ -1727,7 +1730,7 @@
 	 [(20130301 2049)
 	  nil "Major mode for editing J programs [source: github]" tar])
  (iy-go-to-char .
-		[(20130411 1849)
+		[(20130428 1506)
 		 nil "Go to next CHAR which is similar to \"f\" in vim [source: wiki]" single])
  (itail .
 	[(20130102 1159)
@@ -2145,7 +2148,7 @@
 		 [(20130412 1615)
 		  nil "Google's C/C++ style for c-mode [source: svn]" single])
  (golden-ratio .
-	       [(20130406 2150)
+	       [(20130428 1131)
 		nil "Automatic resizing of Emacs windows to the golden ratio [source: github]" single])
  (go-play .
 	  [(20120620 34)
@@ -2522,7 +2525,7 @@
 	  (0 5 1)))
 	"Extensible Vi layer for Emacs. [source: git]" tar])
  (ethan-wspace .
-	       [(20130412 2155)
+	       [(20130428 935)
 		nil "whitespace customizations for emacs [source: github]" single])
  (etags-table .
 	      [(20090327 1737)
