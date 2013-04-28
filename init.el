@@ -65,10 +65,12 @@
  '(erb-face ((t nil)))
  '(erb-out-delim-face ((t (:background "LightPink1" :foreground "black"))))
  '(erb-out-face ((t nil)))
- '(highlight-80+ ((t (:background "gray84"))))
+ '(flycheck-error-face ((t (:inherit error :background "red" :foreground "white"))))
+ '(highlight-80+ ((t (:background "gray84"))) t)
  '(magit-diff-add ((t (:foreground "green"))) t)
  '(magit-diff-del ((t (:foreground "violet red"))) t)
- '(magit-item-highlight ((t nil)) t))
+ '(magit-item-highlight ((t nil)) t)
+ '(mode-line ((t (:background "grey75" :foreground "black" :box nil :family "Inconsolata")))))
  ;; '(mode-line ((t (:background "#FCF6E3" :foreground "white" :box (:line-width -1 :color "#FCF6E3") :height 132 :family "Inconsolata")))))
 
 (set-face-attribute 'default nil
@@ -82,9 +84,11 @@
   (insert (format-time-string "%a %Y-%m-%d")))
 
 ;; elpa repositories
-(setq package-archives '(("ELPA" . "http://tromey.com/elpa/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")))
+;; Sun 2013-04-28 removing elpa references
+;; (setq package-archives '(("ELPA" . "http://tromey.com/elpa/")
+;;                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
+(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")))
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
@@ -99,13 +103,12 @@
  '(highlight-80+-columns 100)
  '(minimap-width-fraction 0.1)
  '(minimap-window-location (quote right))
- '(org-agenda-files (quote ("~/Dropbox/org/projects/home.org" "~/Dropbox/org/todos.org")))
  '(org-babel-load-languages (quote ((emacs-lisp . t) (ruby . t))))
  '(org-src-fontify-natively t)
  '(show-paren-mode t)
  '(speedbar-default-position (quote left))
  '(speedbar-show-unknown-files t)
- '(speedbar-use-images nil)
+ '(speedbar-use-images nil t)
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t))
 
@@ -243,7 +246,155 @@
             )
           )
 
-;; =============   global keys ==================
+(setq js-indent-level 4)
+(add-hook 'js-mode-hook
+          (lambda ()
+            ;; Scan the file for nested code blocks
+            (imenu-add-menubar-index)
+            ;; Activate the folding mode
+            (hs-minor-mode t)))
+
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+
+(setq whitespace-action '(auto-cleanup)) ;; automatically clean up bad whitespace
+(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab)) ;; only show bad whitespace
+
+(defun coffee-custom ()
+  "coffee-mode-hook"
+
+  ;; CoffeeScript uses two spaces.
+  (make-local-variable 'tab-width)
+  (set 'tab-width 2)
+
+  ;; If you don't want your compiled files to be wrapped
+  ;; (setq coffee-args-compile '("-c" "--bare"))
+
+  ;; Emacs key binding
+  (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
+
+  ;; Riding edge.
+  ;; (setq coffee-command "~/dev/coffee")
+
+  ;; Compile '.coffee' files on every save
+  ;; (and (file-exists-p (buffer-file-name))
+  ;;      (file-exists-p (coffee-compiled-file-name))
+  ;;      (coffee-cos-mode t))
+  )
+
+(add-hook 'coffee-mode-hook 'coffee-custom)
+
+
+
+(add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
+
+
+
+
+(add-to-list 'load-path "~/.emacs.d/vendor/auto-complete/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete//ac-dict")
+(ac-config-default)
+
+
+(setq speedbar-use-images nil)
+
+(make-face 'speedbar-face)
+
+;; (setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
+
+
+
+
+;; Display ido results vertically, rather than horizontally
+(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+(defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
+(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
+
+(require 'autopair)
+
+(require 'yaml-mode)
+
+
+(when system-type 'darwin
+      (load-theme 'tsdh-dark t)
+      ;; (set-face-font 'speedbar-face "Monaco-12")
+      ;; background color for modeline
+      ;; (set-face-background 'mode-line "gray27")
+      ;; foreground color for modeline
+      ;; (set-face-foreground 'mode-line "white")
+ 
+)
+;; (set-face-font 'mode-line "Monaco-12")
+
+
+
+;; (add-hook 'ruby-mode-hook 'flycheck-mode)
+
+(autopair-global-mode t)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/emacs-nav-49")
+(require 'nav)
+(nav-disable-overeager-window-splitting)
+;; Optional: set up a quick key to toggle nav
+(global-set-key [f8] 'nav-toggle)
+
+
+
+(add-hook 'coffee-mode-hook 'auto-complete-mode)
+
+
+
+;; (add-to-list 'load-path "~/.emacs.d/vendor/ruby-mode")
+
+ (require 'ob-tangle) 
+
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+(setq ring-bell-function 'ignore)
+
+
+;; (setq projectile-enable-caching nil)
+;; (setq projectile-require-project-root nil)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/")
+(require 'projectile)
+
+(add-hook 'ruby-mode-hook 'projectile-mode)
+(add-hook 'rhtml-mode-hook 'projectile-mode)
+(add-hook 'yaml-mode-hook 'projectile-mode)
+(add-hook 'coffee-mode-hook 'projectile-mode)
+(add-hook 'js-mode-hook 'projectile-mode)
+
+(defun toggle-comment-on-line ()
+  "comment or uncomment current line"
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)))
+
+
+(when window-system
+  (global-set-key (kbd "s-g") 'magit-status)
+  (global-set-key (kbd "s-b") 'ibuffer)
+  (global-set-key (kbd "<s-left>") 'previous-buffer)
+  (global-set-key (kbd "<s-right>") 'next-buffer)
+  (global-set-key (kbd "s-t") 'projectile-find-file)
+  (global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
+
+
+  ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
+  ;;(load-theme 'solarized-light t)
+  )
+
 
 ;; etags-select
 (global-set-key (kbd "M-.") 'etags-select-find-tag-at-point)
@@ -281,66 +432,11 @@
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;; magit-status
-
-
-
-
-(setq js-indent-level 4)
-(add-hook 'js-mode-hook
-          (lambda ()
-            ;; Scan the file for nested code blocks
-            (imenu-add-menubar-index)
-            ;; Activate the folding mode
-            (hs-minor-mode t)))
 ;; Show-hide
 (global-set-key (kbd "C-c <C-right>") 'hs-show-block)
 (global-set-key (kbd "C-c <C-down>") 'hs-show-all)
 (global-set-key (kbd "C-c <C-left>") 'hs-hide-block)
 (global-set-key (kbd "C-c <C-up>") 'hs-hide-all)
-
-;; (defun wicked/php-mode-init ()
-;;   "Set some buffer-local variables."
-;;   (setq case-fold-search t)
-;;   (setq indent-tabs-mode nil)
-;;   (setq-default indent-tabs-mode nil)
-;;   (setq php-mode-force-pear nil)
-;;   (setq fill-column 78)
-;;   (setq c-basic-offset 4)
-;;   (setq mumamo-background-colors nil))
-;; (add-hook 'php-mode-hook 'wicked/php-mode-init)
-
-
-(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
-(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
-
-(setq whitespace-action '(auto-cleanup)) ;; automatically clean up bad whitespace
-(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab)) ;; only show bad whitespace
-
-(defun coffee-custom ()
-  "coffee-mode-hook"
-
-  ;; CoffeeScript uses two spaces.
-  (make-local-variable 'tab-width)
-  (set 'tab-width 2)
-
-  ;; If you don't want your compiled files to be wrapped
-  ;; (setq coffee-args-compile '("-c" "--bare"))
-
-  ;; Emacs key binding
-  (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
-
-  ;; Riding edge.
-  ;; (setq coffee-command "~/dev/coffee")
-
-  ;; Compile '.coffee' files on every save
-  ;; (and (file-exists-p (buffer-file-name))
-  ;;      (file-exists-p (coffee-compiled-file-name))
-  ;;      (coffee-cos-mode t))
-  )
-
-(add-hook 'coffee-mode-hook 'coffee-custom)
-
 
 (global-set-key (kbd "C-c d") 'desktop-change-dir)
 (global-set-key (kbd "C-c t") 'ansi-term)
@@ -348,55 +444,6 @@
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c l") 'magit-log)
 
-(add-to-list 'magic-mode-alist '("<!DOCTYPE html .+DTD XHTML .+>" . nxml-mode))
-
-
-
-
-(add-to-list 'load-path "~/.emacs.d/vendor/auto-complete/")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete//ac-dict")
-(ac-config-default)
-
-
-(setq speedbar-use-images nil)
-
-(make-face 'speedbar-face)
-
-;; (setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
-
-
-
-
-;; Display ido results vertically, rather than horizontally
-(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
-(defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
-(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
-
-(require 'autopair)
-
-(require 'yaml-mode)
-
-(when window-system
-  (global-set-key (kbd "s-g") 'magit-status)
-  (global-set-key (kbd "s-b") 'switch-to-buffer)
-  (global-set-key (kbd "<s-left>") 'previous-buffer)
-  (global-set-key (kbd "<s-right>") 'next-buffer)
-  (global-set-key (kbd "s-t") 'projectile-find-file)
-
-  ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
-  ;;(load-theme 'solarized-light t)
-  )
-(when system-type 'darwin
-      ;; (load-theme 'wheatgrass t)
-      ;; (set-face-font 'speedbar-face "Monaco-12")
-      ;; background color for modeline
-      (set-face-background 'mode-line "gray27")
-      ;; foreground color for modeline
-      (set-face-foreground 'mode-line "white")
- 
-)
-;; (set-face-font 'mode-line "Monaco-12")
 
 (when (and (eq system-type 'darwin) window-system)
   ;; preview for Marked.app
@@ -409,56 +456,26 @@
             (lambda ()
               (local-set-key (kbd "C-c o p") 'osx-markdown-preview))))
 
-;; (defun senny-ruby-interpolate ()
-;;   "In a double quoted string, interpolate."
-;;   (interactive)
-;;   (insert "#")
-;;   (when (and
-;;          (looking-back "\".*")
-;;          (looking-at ".*\""))
-;;     (insert "{}")
-;;     (backward-char 1)))
-
-;; (eval-after-load 'ruby-mode
-;;   '(progn
-;;      (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
-
-(require 'flymake-ruby)
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
-;; (add-hook 'ruby-mode-hook 'ruby-end-mode)
-
-(autopair-global-mode t)
-
-(add-to-list 'load-path "~/.emacs.d/vendor/emacs-nav-49")
-(require 'nav)
-(nav-disable-overeager-window-splitting)
-;; Optional: set up a quick key to toggle nav
-(global-set-key [f8] 'nav-toggle)
 
 
+;; (setq-default mode-line-format `(
+;;     ,(propertize "Line:" 'face 'bold)
+;;     " %l "
+;;     ,(propertize "Size:" 'face 'bold)
+;;     " %i"
+;; ))
 
-(add-hook 'coffee-mode-hook 'auto-complete-mode)
+;; to change fonts 
+;; M-x list-faces-display
+
+;; (add-hook 'after-init-hook 'global-flycheck-mode)
+;; (add-hook 'ruby-mode-hook 'flycheck-mode)
 
 
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; (add-to-list 'load-path "~/.emacs.d/vendor/ruby-mode")
+(add-hook 'after-save-hook 'flycheck-buffer)
 
- (require 'ob-tangle) 
-
-
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-
-(setq ring-bell-function 'ignore)
-
-
-;; (setq projectile-enable-caching nil)
-;; (setq projectile-require-project-root nil)
-
-(add-to-list 'load-path "~/.emacs.d/vendor/")
-(require 'projectile)
-(add-hook 'ruby-mode-hook 'projectile-mode)
-(add-hook 'rhtml-mode-hook 'projectile-mode)
-(add-hook 'yaml-mode-hook 'projectile-mode)
-(add-hook 'coffee-mode-hook 'projectile-mode)
-(add-hook 'js-mode-hook 'projectile-mode)
-
+;; (add-hook 'ruby-mode-hook
+;;           (lambda () 
+;;              (add-hook 'after-save-hook 'flycheck-buffer)))
