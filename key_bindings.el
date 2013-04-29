@@ -67,3 +67,24 @@
 ;; disable C-z
 (global-unset-key "\C-z")
 
+
+
+(when (and (eq system-type 'darwin) window-system)
+  ;; preview for Marked.app
+  ;; https://github.com/JEG2/dotfiles/blob/master/emacs.d/packages.el#L121
+  (defun osx-markdown-preview ()
+    (interactive)
+    (save-buffer)
+    (call-process "open" nil nil nil "-a" "Marked.app" (buffer-file-name)))
+
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-c o p") 'osx-markdown-preview)))
+
+
+  (defun osx-finder-open ()
+    (interactive)
+    (save-buffer)
+    (call-process "open" nil nil nil "-a" "Finder.app" "."))
+  ;; (global-set-key (kbd "s-o") 'osx-finder-open)
+  (global-set-key (kbd "C-c o o")    'osx-finder-open))

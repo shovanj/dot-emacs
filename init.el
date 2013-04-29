@@ -326,20 +326,6 @@
 
 
 
-
-(when (and (eq system-type 'darwin) window-system)
-  ;; preview for Marked.app
-  ;; https://github.com/JEG2/dotfiles/blob/master/emacs.d/packages.el#L121
-  (defun osx-markdown-preview ()
-    (interactive)
-    (save-buffer)
-    (call-process "open" nil nil nil "-a" "Marked.app" (buffer-file-name)))
-  (add-hook 'markdown-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-c o p") 'osx-markdown-preview))))
-
-
-
 ;; (setq-default mode-line-format `(
 ;;     ,(propertize "Line:" 'face 'bold)
 ;;     " %l "
@@ -353,3 +339,5 @@
 (load "~/.emacs.d/ibuffer")
 (load "~/.emacs.d/detect_mode")
 (load "~/.emacs.d/key_bindings")
+
+(global-linum-mode t)
