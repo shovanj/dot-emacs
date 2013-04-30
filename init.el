@@ -325,14 +325,6 @@
         (comment-or-uncomment-region beg end)))
 
 
-
-;; (setq-default mode-line-format `(
-;;     ,(propertize "Line:" 'face 'bold)
-;;     " %l "
-;;     ,(propertize "Size:" 'face 'bold)
-;;     " %i"
-;; ))
-
 ;; to change fonts 
 ;; M-x list-faces-display
 
@@ -341,3 +333,5 @@
 (load "~/.emacs.d/key_bindings")
 
 (global-linum-mode t)
+(require 'git-gutter-fringe)
+(global-git-gutter-mode t)
