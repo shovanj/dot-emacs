@@ -72,7 +72,7 @@
 (when (and (eq system-type 'darwin) window-system)
   ;; preview for Marked.app
   ;; https://github.com/JEG2/dotfiles/blob/master/emacs.d/packages.el#L121
-  (defun osx-markdown-preview ()
+  (defun sj-osx-markdown-preview ()
     (interactive)
     (save-buffer)
     (call-process "open" nil nil nil "-a" "Marked.app" (buffer-file-name)))
@@ -82,7 +82,7 @@
               (local-set-key (kbd "C-c o p") 'osx-markdown-preview)))
 
 
-  (defun osx-finder-open ()
+  (defun sj-osx-finder-open ()
     (interactive)
     (save-buffer)
     (call-process "open" nil nil nil "-a" "Finder.app" "."))
@@ -90,7 +90,7 @@
   (global-set-key (kbd "C-c o o")    'osx-finder-open))
 
 
-(defun delete-this-buffer-and-file ()
+(defun sj-delete-this-buffer-and-file ()
   "Removes file connected to current buffer and kills buffer."
   (interactive)
   (let ((filename (buffer-file-name))
@@ -103,4 +103,3 @@
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
 
-(global-set-key (kbd "C-c k") 'delete-this-buffer-and-file)

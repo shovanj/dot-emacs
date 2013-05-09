@@ -1,2 +1,6 @@
 auto-save-list/
 .DS_Store
+.emacs.desktop*
+bookmarks
+projectile.cache
+url/cookies

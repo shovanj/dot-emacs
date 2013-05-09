@@ -252,7 +252,7 @@
 (defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
 (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
 
-(require 'autopair)
+;; (require 'autopair)
 
 (require 'yaml-mode)
 
@@ -270,12 +270,12 @@
 
 
 
-(require 'flymake-ruby)
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+;; (require 'flymake-ruby)
+;; (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
 
 
-(autopair-global-mode t)
+;; (autopair-global-mode t)
 
 (add-to-list 'load-path "~/.emacs.d/vendor/emacs-nav-49")
 (require 'nav)
