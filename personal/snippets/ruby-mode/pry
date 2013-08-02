@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: bind
+# key: bind
+# group: general
+# --
+binding.pry

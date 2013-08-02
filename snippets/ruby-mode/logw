@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: logw
-# key: logw
-# group: general
-# --
-Rails.logger.warning "***  AAA$1   $2:#{$2.inspect}  *** \n"

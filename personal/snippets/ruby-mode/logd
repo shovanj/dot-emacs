@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: logd
+# key: logd
+# group: general
+# --
+Rails.logger.debug "***  AAA$1   $2:#{$2.inspect}  *** \n"
