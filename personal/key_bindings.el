@@ -25,4 +25,4 @@
 ;; disable C-z
 (global-unset-key "\C-z")
 
-(global-set-key (kbd "TAB") 'smart-tab)
+;; (global-set-key (kbd "TAB") 'smart-tab)
