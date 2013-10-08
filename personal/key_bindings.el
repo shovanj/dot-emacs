@@ -26,3 +26,7 @@
 (global-unset-key "\C-z")
 
 ;; (global-set-key (kbd "TAB") 'smart-tab)
+
+
+(define-key esc-map "[" 'vc-git-grep)
+(define-key esc-map "]" 'magit-status)
