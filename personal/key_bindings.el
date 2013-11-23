@@ -28,5 +28,9 @@
 ;; (global-set-key (kbd "TAB") 'smart-tab)
 
 
-(define-key esc-map "[" 'vc-git-grep)
+;; (define-key esc-map "[" 'vc-git-grep)
+;; (define-key esc-map "[" 'ack-and-a-half)
 (define-key esc-map "]" 'magit-status)
+
+(when (require 'deft nil 'noerror)
+  (global-set-key [f9] 'deft))
