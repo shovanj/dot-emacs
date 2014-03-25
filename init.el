@@ -1,5 +1,5 @@
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+;;                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;; ido-mode settings
 (setq ido-enable-flex-matching t)
@@ -60,11 +60,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(deft-auto-save-interval 5.0)
- '(deft-directory "/Users/sjoshi/Documents/deft/")
+;; '(deft-directory "/Users/sjoshi/.deft/")
  '(deft-extension "org")
  '(deft-text-mode (quote org-mode))
  '(load-dir-recursive t)
- '(load-dirs (quote ("~/.emacs.d/personal" "~/.emacs.d/personal/hooks"))))
+ '(load-dirs (quote ("~/.emacs.d/personal" "~/.emacs.d/personal/hooks")))
+ '(org-agenda-files (quote ("~/.deft/todos.org")))
+ '(org-export-latex-listings t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -72,20 +74,28 @@
  ;; If there is more than one, they won't work right.
  '(magit-item-highlight ((t (:inherit nil)))))
 
- (desktop-save-mode 1)
+;;  (desktop-save-mode 1)
 
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-(add-to-list 'load-path "~/.emacs.d")    ; This may not be appeared if you have already added.
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
-(ac-config-default)
-; Use dictionaries by default
-(setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
-(global-auto-complete-mode t)
-; Start auto-completion after 2 characters of a word
-(setq ac-auto-start 2)
-; case sensitivity is important when finding matches
-(setq ac-ignore-case nil)
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;; (package-initialize)
+
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
+;; (ac-config-default)
+;; ; Use dictionaries by default
+;; (setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
+;; (global-auto-complete-mode t)
+;; ; Start auto-completion after 2 characters of a word
+;; (setq ac-auto-start 2)
+;; ; case sensitivity is important when finding matches
+;; (setq ac-ignore-case nil)
+
+(add-to-list 'load-path "~/.emacs.d/packages/deft")
+(require 'deft)
+(global-set-key [f9] 'deft)
+
+(add-to-list 'load-path "~/.emacs.d/packages/git-modes")
+(add-to-list 'load-path "~/.emacs.d/packages/magit")
+(require 'magit)
