@@ -1,3 +1,6 @@
 [submodule "packages/deft"]
 	path = packages/deft
 	url = git://jblevins.org/git/deft.git
+[submodule "packages/git-modes"]
+	path = packages/git-modes
+	url = https://github.com/magit/git-modes.git
