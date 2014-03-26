@@ -1,0 +1,3 @@
+[submodule "packages/deft"]
+	path = packages/deft
+	url = git://jblevins.org/git/deft.git
