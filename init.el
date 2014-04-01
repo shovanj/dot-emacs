@@ -60,12 +60,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(deft-auto-save-interval 5.0)
-;; '(deft-directory "/Users/sjoshi/.deft/")
+ '(deft-directory "/Users/sjoshi/Dropbox/deft/")
  '(deft-extension "org")
  '(deft-text-mode (quote org-mode))
  '(load-dir-recursive t)
  '(load-dirs (quote ("~/.emacs.d/personal" "~/.emacs.d/personal/hooks")))
- '(org-agenda-files (quote ("~/.deft/todos.org")))
+ '(org-agenda-files (quote ("~/Dropbox/deft/todos.org")))
  '(org-export-latex-listings t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -99,3 +99,6 @@
 (add-to-list 'load-path "~/.emacs.d/packages/git-modes")
 (add-to-list 'load-path "~/.emacs.d/packages/magit")
 (require 'magit)
+
+(add-to-list 'load-path "~/.emacs.d/packages/htmlize")
+(require 'htmlize)
