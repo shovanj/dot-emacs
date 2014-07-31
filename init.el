@@ -61,21 +61,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(gnus-directory "/mnt/pi/emacs/News")
+ '(gnus-home-directory "/mnt/pi/emacs")
  '(deft-auto-save-interval 5.0)
- '(deft-directory "/Volumes/Pi/emacs/deft/")
+ '(deft-directory "/mnt/pi/emacs/deft/")
  '(deft-extension "org")
  '(deft-text-mode (quote org-mode))
- '(gnus-directory "/Volumes/Pi/emacs/News/")
- '(gnus-home-directory "/Volumes/Pi/emacs")
  '(load-dir-recursive t)
  '(load-dirs (quote ("~/.emacs.d/personal" "~/.emacs.d/personal/hooks")))
- '(org-agenda-files (quote ("/Volumes/Pi/emacs/deft/todos.org")))
+ '(org-agenda-files (quote ("/mnt/pi/emacs/deft/todos.org")))
  '(org-export-latex-listings t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 81 :width normal))))
  '(magit-item-highlight ((t (:inherit nil)))))
 
 ;;  (desktop-save-mode 1)
@@ -107,9 +108,12 @@
 (add-to-list 'load-path "~/.emacs.d/packages/htmlize")
 (require 'htmlize)
 
-
 (add-to-list 'load-path "~/.emacs.d/packages/swift-mode")
 (require 'swift-mode)
 
 (add-to-list 'load-path "~/.emacs.d/packages/git-timemachine")
 (require 'git-timemachine)
+
+(setq gnus-button-url 'browse-url-generic
+          browse-url-generic-program "conkeror"
+          browse-url-browser-function gnus-button-url)
