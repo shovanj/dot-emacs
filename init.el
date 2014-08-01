@@ -110,3 +110,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/packages/swift-mode")
 (require 'swift-mode)
+
+(add-to-list 'load-path "~/.emacs.d/packages/git-timemachine")
+(require 'git-timemachine)

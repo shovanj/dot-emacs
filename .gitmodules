@@ -10,3 +10,6 @@
 [submodule "packages/swift-mode"]
 	path = packages/swift-mode
 	url = git@github.com:chrisbarrett/swift-mode.git
+[submodule "packages/git-timemachine"]
+	path = packages/git-timemachine
+	url = git@github.com:pidu/git-timemachine.git
