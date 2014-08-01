@@ -29,7 +29,9 @@
 (global-hl-line-mode -1)
 
 ;; hide menu bar mode
-(menu-bar-mode -1)
+(menu-bar-mode 1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; use spaces instead of tabs
 (setq-default indent-tabs-mode nil)
@@ -60,12 +62,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(deft-auto-save-interval 5.0)
- '(deft-directory "/Users/sjoshi/Dropbox/deft/")
+ '(deft-directory "/Volumes/Pi/emacs/deft/")
  '(deft-extension "org")
  '(deft-text-mode (quote org-mode))
+ '(gnus-directory "/Volumes/Pi/emacs/News/")
+ '(gnus-home-directory "/Volumes/Pi/emacs")
  '(load-dir-recursive t)
  '(load-dirs (quote ("~/.emacs.d/personal" "~/.emacs.d/personal/hooks")))
- '(org-agenda-files (quote ("~/Dropbox/deft/todos.org")))
+ '(org-agenda-files (quote ("/Volumes/Pi/emacs/deft/todos.org")))
  '(org-export-latex-listings t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -102,3 +106,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/packages/htmlize")
 (require 'htmlize)
+
+
+(add-to-list 'load-path "~/.emacs.d/packages/swift-mode")
+(require 'swift-mode)

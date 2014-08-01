@@ -7,3 +7,6 @@
 [submodule "packages/magit"]
 	path = packages/magit
 	url = git://github.com/magit/magit.git
+[submodule "packages/swift-mode"]
+	path = packages/swift-mode
+	url = git@github.com:chrisbarrett/swift-mode.git
