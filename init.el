@@ -113,3 +113,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/packages/git-timemachine")
 (require 'git-timemachine)
+
+(add-to-list 'load-path "~/.emacs.d/packages/popwin-el")
+(require 'popwin)
+(popwin-mode 1)
