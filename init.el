@@ -117,3 +117,6 @@
 (add-to-list 'load-path "~/.emacs.d/packages/popwin-el")
 (require 'popwin)
 (popwin-mode 1)
+
+(add-to-list 'load-path "~/.emacs.d/packages/emacs-elixir/")
+(require 'elixir-mode)
