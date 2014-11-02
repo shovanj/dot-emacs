@@ -19,3 +19,6 @@
 [submodule "packages/emacs-elixir"]
 	path = packages/emacs-elixir
 	url = git@github.com:elixir-lang/emacs-elixir.git
+[submodule "packages/markdown-mode"]
+	path = packages/markdown-mode
+	url = git://jblevins.org/git/markdown-mode.git
