@@ -34,3 +34,5 @@
 
 (when (require 'deft nil 'noerror)
   (global-set-key [f9] 'deft))
+
+(global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
