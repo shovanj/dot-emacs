@@ -22,3 +22,6 @@
 [submodule "packages/markdown-mode"]
 	path = packages/markdown-mode
 	url = git://jblevins.org/git/markdown-mode.git
+[submodule "packages/web-mode"]
+	path = packages/web-mode
+	url = https://github.com/fxbois/web-mode.git
