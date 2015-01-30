@@ -25,3 +25,9 @@
 [submodule "packages/web-mode"]
 	path = packages/web-mode
 	url = https://github.com/fxbois/web-mode.git
+[submodule "packages/yasnippet"]
+	path = packages/yasnippet
+	url = https://github.com/capitaomorte/yasnippet
+[submodule "packages/yaml-mode"]
+	path = packages/yaml-mode
+	url = git@github.com:yoshiki/yaml-mode.git
