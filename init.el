@@ -68,7 +68,6 @@
  '(gnus-directory "/Volumes/Pi/emacs/News/")
  '(gnus-home-directory "/Volumes/Pi/emacs")
  '(load-dir-recursive t)
- '(load-dirs (quote ("~/.emacs.d/personal" "~/.emacs.d/personal/hooks")))
  '(org-agenda-files (quote ("/Volumes/Pi/emacs/deft/todos.org")))
  '(org-export-latex-listings t))
 (custom-set-faces
@@ -130,3 +129,20 @@
 
 (add-to-list 'load-path "~/.emacs.d/packages/web-mode/")
 (require 'web-mode)
+
+(add-to-list 'load-path "~/.emacs.d/packages/yaml-mode/")
+(require 'yaml-mode)
+
+(add-to-list 'load-path "~/.emacs.d/packages/yasnippet")
+(require 'yasnippet)
+
+(load-file "~/.emacs.d/personal/key_bindings.el")
+(load-file "~/.emacs.d/personal/detect_mode.el")
+(load-file "~/.emacs.d/personal/custom_functions.el")
+
+(load-file "~/.emacs.d/personal/hooks/ruby.el")
+(load-file "~/.emacs.d/personal/hooks/javascript.el")
+(load-file "~/.emacs.d/personal/hooks/yaml.el")
+(load-file "~/.emacs.d/personal/hooks/yas.el")
+
+
