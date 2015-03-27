@@ -70,12 +70,18 @@
  '(load-dir-recursive t)
  '(org-agenda-files (quote ("/Volumes/Pi/emacs/deft/todos.org")))
  '(org-export-latex-listings t))
+ '(tabbar-separator (quote (1.0)))
+ '(tabbar-use-images nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(magit-item-highlight ((t (:inherit nil)))))
+ '(magit-item-highlight ((t (:inherit nil))))
+ '(tabbar-button ((t (:inherit tabbar-default))))
+ '(tabbar-default ((t (:inherit variable-pitch :background "highlightColor" :foreground "secondaryLabelColor" :height 1.2))))
+ '(tabbar-selected ((t (:inherit tabbar-default :foreground "Purple" :box (:line-width 1 :color "white" :style pressed-button)))))
+ '(tabbar-unselected ((t (:inherit tabbar-default)))))
 
 ;;  (desktop-save-mode 1)
 
@@ -146,3 +152,37 @@
 (load-file "~/.emacs.d/personal/hooks/yas.el")
 
 
+(add-to-list 'load-path "~/.emacs.d/packages/tabbar-mode")
+(require 'tabbar)
+(tabbar-mode)
+
+(global-set-key (kbd "S-s-<right>") 'tabbar-forward-tab)
+(global-set-key (kbd "S-s-<left>") 'tabbar-backward-tab)
+
+(global-set-key (kbd "s-<right>") 'tabbar-forward-group)
+(global-set-key (kbd "s-<left>") 'tabbar-backward-group)
+
+
+;; Display ido results vertically, rather than horizontally
+(defun tabbar-buffer-groups-by-dir ()
+        "Put all files in the same directory into the same tab bar"
+        (with-current-buffer (current-buffer)
+          (let ((dir (expand-file-name default-directory)))
+            (cond ;; assign group name until one clause succeeds, so the order is important
+             ((eq major-mode 'dired-mode)
+              (list "Dired"))
+             ((memq major-mode
+                    '(help-mode apropos-mode Info-mode Man-mode))
+              (list "Help"))
+             ((string-match-p "\*.*\*" (buffer-name))
+              (list "Misc"))
+             (t (list dir))))))
+
+(defun tabbar-switch-grouping-method (&optional arg)
+  "Changes grouping method of tabbar to grouping by dir.
+With a prefix arg, changes to grouping by major mode."
+  (interactive "P")
+  (ignore-errors
+    (if arg
+      (setq tabbar-buffer-groups-function 'tabbar-buffer-groups) ;; the default setting
+        (setq tabbar-buffer-groups-function 'tabbar-buffer-groups-by-dir))))
