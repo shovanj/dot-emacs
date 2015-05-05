@@ -142,6 +142,10 @@
 (add-to-list 'load-path "~/.emacs.d/packages/yasnippet")
 (require 'yasnippet)
 
+(add-to-list 'load-path "~/.emacs.d/packages/inf-ruby")
+(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+
 (load-file "~/.emacs.d/personal/key_bindings.el")
 (load-file "~/.emacs.d/personal/detect_mode.el")
 (load-file "~/.emacs.d/personal/custom_functions.el")
