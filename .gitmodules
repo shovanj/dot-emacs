@@ -34,3 +34,6 @@
 [submodule "packages/tabbar-mode"]
 	path = packages/tabbar-mode
 	url = https://github.com/dholm/tabbar.git
+[submodule "packages/inf-ruby"]
+	path = packages/inf-ruby
+	url = git@github.com:nonsequitur/inf-ruby.git
