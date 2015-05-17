@@ -142,6 +142,12 @@
 (add-to-list 'load-path "~/.emacs.d/packages/yasnippet")
 (require 'yasnippet)
 
+(add-to-list 'load-path "~/.emacs.d/packages/avy")
+(require 'avy)
+
+(add-to-list 'load-path "~/.emacs.d/packages/ace-window")
+(require 'ace-window)
+
 (add-to-list 'load-path "~/.emacs.d/packages/inf-ruby")
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
@@ -167,7 +173,7 @@
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
-(global-set-key (kbd "M-/") 'hippie-expand)
+;; (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 

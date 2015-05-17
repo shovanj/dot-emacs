@@ -36,3 +36,16 @@
   (global-set-key [f9] 'deft))
 
 (global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
+
+(global-set-key (kbd "C-'") 'avy-goto-char-2)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
+(defvar aw-dispatch-alist
+'((?x aw-delete-window " Ace - Delete Window")
+    (?m aw-swap-window " Ace - Swap Window")
+    (?n aw-flip-window)
+    (?v aw-split-window-vert " Ace - Split Vert Window")
+    (?b aw-split-window-horz " Ace - Split Horz Window")
+    (?i delete-other-windows " Ace - Maximize Window")
+    (?o delete-other-windows))
+"List of actions for `aw-dispatch-default'.")

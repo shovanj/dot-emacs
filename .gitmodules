@@ -37,3 +37,9 @@
 [submodule "packages/inf-ruby"]
 	path = packages/inf-ruby
 	url = git@github.com:nonsequitur/inf-ruby.git
+[submodule "packages/ace-window"]
+	path = packages/ace-window
+	url = git@github.com:abo-abo/ace-window.git
+[submodule "packages/avy"]
+	path = packages/avy
+	url = git@github.com:abo-abo/avy.git
