@@ -1,5 +1,7 @@
-; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-;;                          ("marmalade" . "http://marmalade-repo.org/packages/")))
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
 
 ;; ido-mode settings
 (setq ido-enable-flex-matching t)
@@ -89,6 +91,10 @@
 ;; (add-to-list 'package-archives
 ;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 ;; (package-initialize)
+
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
+(require 'auto-complete-config)
+(ac-config-default)
 
 ;; (require 'auto-complete-config)
 ;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
