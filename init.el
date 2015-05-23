@@ -92,9 +92,9 @@
 ;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 ;; (package-initialize)
 
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
 (require 'auto-complete-config)
 (ac-config-default)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
 
 ;; (require 'auto-complete-config)
 ;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
