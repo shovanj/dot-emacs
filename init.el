@@ -64,14 +64,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(deft-auto-save-interval 5.0)
- '(deft-directory "/Volumes/Pi/emacs/deft/")
+ '(deft-directory "~/Documents/Emacs/deft/")
  '(deft-extension "org")
  '(deft-text-mode (quote org-mode))
- '(gnus-directory "/Volumes/Pi/emacs/News/")
- '(gnus-home-directory "/Volumes/Pi/emacs")
+ '(gnus-directory "~/Documents/Emacsc/News/")
+ '(gnus-home-directory "~/Documents/Emacs")
  '(load-dir-recursive t)
- '(org-agenda-files (quote ("/Volumes/Pi/emacs/deft/todos.org")))
- '(org-export-latex-listings t))
+ '(org-agenda-files (quote ("~/Documents/Emacs/deft/todos.org")))
+ '(org-export-latex-listings t)
  '(tabbar-separator (quote (1.0)))
  '(tabbar-use-images nil))
 (custom-set-faces
