@@ -109,7 +109,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/packages/deft")
 (require 'deft)
-(global-set-key [f9] 'deft)
+
 
 (add-to-list 'load-path "~/.emacs.d/packages/git-modes")
 (add-to-list 'load-path "~/.emacs.d/packages/magit")
@@ -168,20 +168,14 @@
 (load-file "~/.emacs.d/personal/hooks/yas.el")
 
 
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
 
 (autoload 'zap-up-to-char "misc"
     "Kill up to, but not including ARGth occurrence of CHAR." t)
-(global-set-key (kbd "M-z") 'zap-up-to-char)
+
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 ;; (global-set-key (kbd "M-/") 'hippie-expand)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "M-z") 'zap-up-to-char)
 
 (setq require-final-newline t
       visible-bell t
@@ -190,17 +184,11 @@
 
 (add-to-list 'load-path "~/.emacs.d/packages/neotree")
 (require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
+
 
 (add-to-list 'load-path "~/.emacs.d/packages/tabbar-mode")
 (require 'tabbar)
 (tabbar-mode)
-
-(global-set-key (kbd "S-s-<right>") 'tabbar-forward-tab)
-(global-set-key (kbd "S-s-<left>") 'tabbar-backward-tab)
-
-(global-set-key (kbd "s-<right>") 'tabbar-forward-group)
-(global-set-key (kbd "s-<left>") 'tabbar-backward-group)
 
 
 ;; Display ido results vertically, rather than horizontally
@@ -213,7 +201,7 @@
   (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
 (add-hook 'ido-setup-hook 'ido-define-keys)
 
-(global-set-key (kbd "s-o") 'ido-find-file)
+
 
 (defun tabbar-buffer-groups-by-dir ()
         "Put all files in the same directory into the same tab bar"

@@ -51,3 +51,27 @@
     (?i delete-other-windows " Ace - Maximize Window")
     (?o delete-other-windows))
 "List of actions for `aw-dispatch-default'.")
+
+
+(global-set-key [f9] 'deft)
+
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+
+
+(global-set-key [f8] 'neotree-toggle)
+
+(global-set-key (kbd "S-s-<right>") 'tabbar-forward-tab)
+(global-set-key (kbd "S-s-<left>") 'tabbar-backward-tab)
+
+(global-set-key (kbd "s-<right>") 'tabbar-forward-group)
+(global-set-key (kbd "s-<left>") 'tabbar-backward-group)
+
+
+(global-set-key (kbd "s-o") 'ido-find-file)
