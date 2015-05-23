@@ -38,6 +38,8 @@
 (global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
 
 (global-set-key (kbd "C-'") 'avy-goto-char-2)
+(global-set-key (kbd "C-x j") 'ace-window)
+
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
 (defvar aw-dispatch-alist
