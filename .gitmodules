@@ -43,3 +43,6 @@
 [submodule "packages/avy"]
 	path = packages/avy
 	url = git@github.com:abo-abo/avy.git
+[submodule "packages/neotree"]
+	path = packages/neotree
+	url = https://github.com/jaypei/emacs-neotree.git

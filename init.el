@@ -182,6 +182,10 @@
       ediff-window-setup-function 'ediff-setup-windows-plain)
 
 
+(add-to-list 'load-path "~/.emacs.d/packages/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
 (add-to-list 'load-path "~/.emacs.d/packages/tabbar-mode")
 (require 'tabbar)
 (tabbar-mode)
