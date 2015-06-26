@@ -32,8 +32,13 @@
 
 ;; hide menu bar mode
 (menu-bar-mode 1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+
+;; more readable :)
+(when (display-graphic-p)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+
+
 
 ;; use spaces instead of tabs
 (setq-default indent-tabs-mode nil)
