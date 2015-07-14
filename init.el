@@ -36,7 +36,7 @@
 ;; more readable :)
 (when (display-graphic-p)
   (tool-bar-mode -1)
-  (scroll-bar-mode -1))
+  (scroll-bar-mode -1)
 
 
 
@@ -69,13 +69,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(deft-auto-save-interval 5.0)
- '(deft-directory (getenv "DEFT_DIR"))
+ '(deft-directory "~/Documents/Emacs/deft/")
  '(deft-extension "org")
  '(deft-text-mode (quote org-mode))
- '(gnus-directory (getenv "GNUS_NEWS_DIR"))
- '(gnus-home-directory (getenv "GNUS_DIR"))
+ '(gnus-directory "~/Documents/Emacsc/News/")
+ '(gnus-home-directory "~/Documents/Emacs")
  '(load-dir-recursive t)
- '(org-agenda-files (quote (concat (getenv "DEFT_DIR") "todos.org")))
+ '(org-agenda-files (quote ("~/Documents/Emacs/deft/todos.org")))
  '(org-export-latex-listings t)
  '(tabbar-separator (quote (1.0)))
  '(tabbar-use-images nil))
