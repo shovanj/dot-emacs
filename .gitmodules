@@ -46,3 +46,9 @@
 [submodule "packages/neotree"]
 	path = packages/neotree
 	url = https://github.com/jaypei/emacs-neotree.git
+[submodule "yari.el"]
+	path = yari.el
+	url = git@github.com:hron/yari.el.git
+[submodule "packages/yari"]
+	path = packages/yari
+	url = git@github.com:hron/yari.el.git

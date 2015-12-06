@@ -197,6 +197,9 @@
 (require 'tabbar)
 (tabbar-mode)
 
+(add-to-list 'load-path "~/.emacs.d/packages/yari")
+(require 'yari)
+(define-key 'help-command "R" 'yari)
 
 ;; Display ido results vertically, rather than horizontally
 (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
