@@ -36,7 +36,7 @@
 ;; more readable :)
 (when (display-graphic-p)
   (tool-bar-mode -1)
-  (scroll-bar-mode -1)
+  (scroll-bar-mode -1))
 
 
 
@@ -72,7 +72,7 @@
  '(deft-directory "~/Documents/Emacs/deft/")
  '(deft-extension "org")
  '(deft-text-mode (quote org-mode))
- '(gnus-directory "~/Documents/Emacsc/News/")
+ '(gnus-directory "~/Documents/Emacs/News/")
  '(gnus-home-directory "~/Documents/Emacs")
  '(load-dir-recursive t)
  '(org-agenda-files (quote ("~/Documents/Emacs/deft/todos.org")))
@@ -85,10 +85,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(magit-item-highlight ((t (:inherit nil))))
- '(tabbar-button ((t (:inherit tabbar-default))))
- '(tabbar-default ((t (:inherit variable-pitch :background "highlightColor" :foreground "secondaryLabelColor" :height 1.2))))
- '(tabbar-selected ((t (:inherit tabbar-default :foreground "Purple" :box (:line-width 1 :color "white" :style pressed-button)))))
- '(tabbar-unselected ((t (:inherit tabbar-default)))))
+ '(tabbar-button ((t (:inherit tabbar-default :height 0.9))))
+ '(tabbar-button-highlight ((t (:inherit tabbar-default :height 0.9))))
+ '(tabbar-default ((t (:inherit variable-pitch :background "highlightColor" :foreground "secondaryLabelColor" :height 0.9))))
+ '(tabbar-modified ((t (:inherit tabbar-default :foreground "green" :box (:line-width 1 :color "white" :style released-button) :height 0.7))))
+ '(tabbar-selected ((t (:inherit tabbar-default :foreground "Purple" :box (:line-width 1 :color "white" :style pressed-button) :height 0.9))))
+ '(tabbar-unselected ((t (:inherit tabbar-default :height 0.9)))))
 
 ;;  (desktop-save-mode 1)
 
@@ -230,3 +232,6 @@ With a prefix arg, changes to grouping by major mode."
     (if arg
       (setq tabbar-buffer-groups-function 'tabbar-buffer-groups) ;; the default setting
         (setq tabbar-buffer-groups-function 'tabbar-buffer-groups-by-dir))))
+
+(setq ido-ignore-directories
+            '("Applications/" "Documents/" "Library/" "Movies/" "Music/" "Pictures/" "Public/"))
