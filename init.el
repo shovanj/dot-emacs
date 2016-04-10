@@ -78,19 +78,19 @@
  '(org-agenda-files (quote ("~/Documents/Emacs/deft/todos.org")))
  '(org-export-latex-listings t)
  '(tabbar-separator (quote (1.0)))
- '(tabbar-use-images nil))
+ '(tabbar-use-images t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(magit-item-highlight ((t (:inherit nil))))
- '(tabbar-button ((t (:inherit tabbar-default :height 0.9))))
- '(tabbar-button-highlight ((t (:inherit tabbar-default :height 0.9))))
- '(tabbar-default ((t (:inherit variable-pitch :background "highlightColor" :foreground "secondaryLabelColor" :height 0.9))))
- '(tabbar-modified ((t (:inherit tabbar-default :foreground "green" :box (:line-width 1 :color "white" :style released-button) :height 0.7))))
- '(tabbar-selected ((t (:inherit tabbar-default :foreground "Purple" :box (:line-width 1 :color "white" :style pressed-button) :height 0.9))))
- '(tabbar-unselected ((t (:inherit tabbar-default :height 0.9)))))
+ '(tabbar-button ((t (:inherit tabbar-default :height 1.0))))
+ '(tabbar-button-highlight ((t (:inherit tabbar-default :height 1.0))))
+ '(tabbar-default ((t (:inherit variable-pitch :background "highlightColor" :foreground "secondaryLabelColor" :height 1.0))))
+ '(tabbar-modified ((t (:inherit tabbar-default :foreground "green" :box (:line-width 1 :color "white" :style released-button) :height 1.0))))
+ '(tabbar-selected ((t (:inherit tabbar-default :foreground "Purple" :box (:line-width 1 :color "white" :style pressed-button) :height 1.0))))
+ '(tabbar-unselected ((t (:inherit tabbar-default :height 1.0)))))
 
 ;;  (desktop-save-mode 1)
 
