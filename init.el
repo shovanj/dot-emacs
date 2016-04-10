@@ -238,3 +238,11 @@ With a prefix arg, changes to grouping by major mode."
 
 (setq ido-ignore-directories
             '("Applications/" "Documents/" "Library/" "Movies/" "Music/" "Pictures/" "Public/"))
+
+(add-to-list 'load-path "~/.emacs.d/packages/textile-mode")
+(require 'textile-mode)
+(add-to-list 'auto-mode-alist '("\\.textile\\'" . textile-mode))
+
+
+(add-to-list 'load-path "~/.emacs.d/packages/org-textile/")
+(require 'ox-textile)

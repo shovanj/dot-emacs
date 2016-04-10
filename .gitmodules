@@ -52,3 +52,9 @@
 [submodule "packages/yari"]
 	path = packages/yari
 	url = git@github.com:hron/yari.el.git
+[submodule "packages/textile-mode"]
+	path = packages/textile-mode
+	url = git@github.com:juba/textile-mode.git
+[submodule "packages/org-textile"]
+	path = packages/org-textile
+	url = git@github.com:yashi/org-textile.git
