@@ -67,3 +67,9 @@
 [submodule "packages/dash"]
 	path = packages/dash
 	url = git@github.com:magnars/dash.el.git
+[submodule "packages/evil"]
+	path = packages/evil
+	url = git@github.com:emacsmirror/evil.git
+[submodule "packages/powerline"]
+	path = packages/powerline
+	url = git@github.com:Dewdrops/powerline.git
