@@ -247,6 +247,7 @@ With a prefix arg, changes to grouping by major mode."
 (add-to-list 'load-path "~/.emacs.d/packages/org-textile/")
 (require 'ox-textile)
 
+
 (add-to-list 'load-path "~/emacs.d/packages/flx")
 (load-file "~/.emacs.d/packages/flx/flx.el")
 (load-file "~/.emacs.d/packages/flx/flx-ido.el")
@@ -259,3 +260,8 @@ With a prefix arg, changes to grouping by major mode."
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
 
+(add-to-list 'load-path "~/.emacs.d/packages/dash")
+(require 'dash)
+
+(add-to-list 'load-path "~/.emacs.d/packages/projectile-mode")
+(load-file "~/.emacs.d/packages/projectile-mode/projectile.el")
