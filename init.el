@@ -246,3 +246,16 @@ With a prefix arg, changes to grouping by major mode."
 
 (add-to-list 'load-path "~/.emacs.d/packages/org-textile/")
 (require 'ox-textile)
+
+(add-to-list 'load-path "~/emacs.d/packages/flx")
+(load-file "~/.emacs.d/packages/flx/flx.el")
+(load-file "~/.emacs.d/packages/flx/flx-ido.el")
+(require 'flx)
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+

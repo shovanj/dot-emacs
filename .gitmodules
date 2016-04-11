@@ -58,3 +58,9 @@
 [submodule "packages/org-textile"]
 	path = packages/org-textile
 	url = git@github.com:yashi/org-textile.git
+[submodule "packages/flx"]
+	path = packages/flx
+	url = git@github.com:lewang/flx.git
+[submodule "packages/dash"]
+	path = packages/dash
+	url = git@github.com:magnars/dash.el.git
