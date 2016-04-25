@@ -73,3 +73,9 @@
 [submodule "packages/powerline"]
 	path = packages/powerline
 	url = git@github.com:Dewdrops/powerline.git
+[submodule "packages/org-bullets"]
+	path = packages/org-bullets
+	url = git@github.com:sabof/org-bullets.git
+[submodule "packages/restclient"]
+	path = packages/restclient
+	url = git@github.com:pashky/restclient.el.git
