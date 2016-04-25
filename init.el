@@ -269,15 +269,11 @@ With a prefix arg, changes to grouping by major mode."
 (defun is-in-terminal()
   (not (display-graphic-p)))
 
+(add-to-list 'load-path "~/.emacs.d/packages/evil")
+(require 'evil)
 
-
-;; (add-to-list 'load-path "~/.emacs.d/packages/evil")
-;; (require 'evil)
-;; (evil-mode 1)
-
-;; (add-to-list 'load-path "~/.emacs.d/packages/powerline")
-;; (require 'powerline)
-;; (powerline-center-evil-theme)
+(add-to-list 'load-path "~/.emacs.d/packages/powerline")
+(require 'powerline)
+(powerline-center-evil-theme)
 ;; ;
-;; (powerline-evil-theme)
-
+(powerline-evil-theme)
