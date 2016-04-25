@@ -79,3 +79,6 @@
 [submodule "packages/restclient"]
 	path = packages/restclient
 	url = git@github.com:pashky/restclient.el.git
+[submodule "packages/elixir"]
+	path = packages/elixir
+	url = git@github.com:elixir-lang/emacs-elixir.git

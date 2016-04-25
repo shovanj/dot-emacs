@@ -277,3 +277,7 @@ With a prefix arg, changes to grouping by major mode."
 (powerline-center-evil-theme)
 ;; ;
 (powerline-evil-theme)
+
+(add-to-list 'load-path "~/.emacs.d/packages/elixir")
+(require 'elixir-mode)
+
