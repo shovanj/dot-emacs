@@ -281,3 +281,11 @@ With a prefix arg, changes to grouping by major mode."
 (add-to-list 'load-path "~/.emacs.d/packages/elixir")
 (require 'elixir-mode)
 
+(load-file "~/.emacs.d/packages/gnuplot-mode/gnuplot.el")
+
+;; active Babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((gnuplot . t)))
+;; add additional languages with '((language . t)))
+

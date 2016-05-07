@@ -82,3 +82,6 @@
 [submodule "packages/elixir"]
 	path = packages/elixir
 	url = git@github.com:elixir-lang/emacs-elixir.git
+[submodule "packages/gnuplot-mode"]
+	path = packages/gnuplot-mode
+	url = https://github.com/bruceravel/gnuplot-mode.git
