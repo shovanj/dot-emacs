@@ -77,6 +77,7 @@
  '(load-dir-recursive t)
  '(org-agenda-files (quote ("~/Documents/Emacs/deft/todos.org")))
  '(org-export-latex-listings t)
+ '(package-selected-packages (quote (exec-path-from-shell alchemist auto-complete)))
  '(tabbar-separator (quote (1.0)))
  '(tabbar-use-images t))
 (custom-set-faces
@@ -315,4 +316,10 @@ With a prefix arg, changes to grouping by major mode."
                           `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
                           `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
                           `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+(setq alchemist-execute-command "/usr/local/bin/elixir") ;; default: elixir
+(setq alchemist-compile-command "/usr/local/bin/elixirc") ;; default: elixirc
+(setq alchemist-iex-program-name "/usr/local/bin/iex") ;; default: iex
 
