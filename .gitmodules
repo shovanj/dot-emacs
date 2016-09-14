@@ -1,24 +1,9 @@
-[submodule "packages/deft"]
-	path = packages/deft
-	url = git://jblevins.org/git/deft.git
-[submodule "packages/git-modes"]
-	path = packages/git-modes
-	url = https://github.com/magit/git-modes.git
-[submodule "packages/magit"]
-	path = packages/magit
-	url = git://github.com/magit/magit.git
 [submodule "packages/swift-mode"]
 	path = packages/swift-mode
 	url = git@github.com:chrisbarrett/swift-mode.git
-[submodule "packages/git-timemachine"]
-	path = packages/git-timemachine
-	url = git@github.com:pidu/git-timemachine.git
 [submodule "packages/popwin-el"]
 	path = packages/popwin-el
 	url = git@github.com:m2ym/popwin-el.git
-[submodule "packages/emacs-elixir"]
-	path = packages/emacs-elixir
-	url = git@github.com:elixir-lang/emacs-elixir.git
 [submodule "packages/markdown-mode"]
 	path = packages/markdown-mode
 	url = git://jblevins.org/git/markdown-mode.git
@@ -37,12 +22,6 @@
 [submodule "packages/inf-ruby"]
 	path = packages/inf-ruby
 	url = git@github.com:nonsequitur/inf-ruby.git
-[submodule "packages/ace-window"]
-	path = packages/ace-window
-	url = git@github.com:abo-abo/ace-window.git
-[submodule "packages/avy"]
-	path = packages/avy
-	url = git@github.com:abo-abo/avy.git
 [submodule "packages/neotree"]
 	path = packages/neotree
 	url = https://github.com/jaypei/emacs-neotree.git
@@ -58,30 +37,12 @@
 [submodule "packages/org-textile"]
 	path = packages/org-textile
 	url = git@github.com:yashi/org-textile.git
-[submodule "packages/projectile-mode"]
-	path = packages/projectile-mode
-	url = git@github.com:bbatsov/projectile.git
-[submodule "packages/flx"]
-	path = packages/flx
-	url = git@github.com:lewang/flx.git
 [submodule "packages/dash"]
 	path = packages/dash
 	url = git@github.com:magnars/dash.el.git
-[submodule "packages/evil"]
-	path = packages/evil
-	url = git@github.com:emacsmirror/evil.git
-[submodule "packages/powerline"]
-	path = packages/powerline
-	url = git@github.com:Dewdrops/powerline.git
 [submodule "packages/org-bullets"]
 	path = packages/org-bullets
 	url = git@github.com:sabof/org-bullets.git
 [submodule "packages/restclient"]
 	path = packages/restclient
 	url = git@github.com:pashky/restclient.el.git
-[submodule "packages/elixir"]
-	path = packages/elixir
-	url = git@github.com:elixir-lang/emacs-elixir.git
-[submodule "packages/gnuplot-mode"]
-	path = packages/gnuplot-mode
-	url = https://github.com/bruceravel/gnuplot-mode.git

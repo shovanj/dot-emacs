@@ -77,7 +77,9 @@
  '(load-dir-recursive t)
  '(org-agenda-files (quote ("~/Documents/Emacs/deft/todos.org")))
  '(org-export-latex-listings t)
- '(package-selected-packages (quote (exec-path-from-shell alchemist auto-complete)))
+ '(package-selected-packages
+   (quote
+    (git-timemachine flx-ido flx ace-window avy powerline projectile deft evil gnuplot-mode elixir-yasnippets magit exec-path-from-shell alchemist auto-complete)))
  '(tabbar-separator (quote (1.0)))
  '(tabbar-use-images t))
 (custom-set-faces
@@ -115,30 +117,16 @@
 ;; ; case sensitivity is important when finding matches
 ;; (setq ac-ignore-case nil)
 
-(add-to-list 'load-path "~/.emacs.d/packages/deft")
-(require 'deft)
-
-
-(add-to-list 'load-path "~/.emacs.d/packages/git-modes")
-(add-to-list 'load-path "~/.emacs.d/packages/magit")
-(require 'magit)
-
 (add-to-list 'load-path "~/.emacs.d/packages/htmlize")
 (require 'htmlize)
 
-
 (add-to-list 'load-path "~/.emacs.d/packages/swift-mode")
 (require 'swift-mode)
-
-(add-to-list 'load-path "~/.emacs.d/packages/git-timemachine")
-(require 'git-timemachine)
 
 (add-to-list 'load-path "~/.emacs.d/packages/popwin-el")
 (require 'popwin)
 (popwin-mode 1)
 
-(add-to-list 'load-path "~/.emacs.d/packages/emacs-elixir/")
-(require 'elixir-mode)
 ;; (autoload 'markdown-mode "markdown-mode"
 ;;    "Major mode for editing Markdown files" t)
 (add-to-list 'load-path "~/.emacs.d/packages/markdown-mode")
@@ -155,12 +143,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/packages/yasnippet")
 (require 'yasnippet)
-
-(add-to-list 'load-path "~/.emacs.d/packages/avy")
-(require 'avy)
-
-(add-to-list 'load-path "~/.emacs.d/packages/ace-window")
-(require 'ace-window)
 
 (add-to-list 'load-path "~/.emacs.d/packages/inf-ruby")
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
@@ -249,11 +231,6 @@ With a prefix arg, changes to grouping by major mode."
 (require 'ox-textile)
 
 
-(add-to-list 'load-path "~/emacs.d/packages/flx")
-(load-file "~/.emacs.d/packages/flx/flx.el")
-(load-file "~/.emacs.d/packages/flx/flx-ido.el")
-(require 'flx)
-(require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
 (flx-ido-mode 1)
@@ -261,28 +238,9 @@ With a prefix arg, changes to grouping by major mode."
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
 
-(add-to-list 'load-path "~/.emacs.d/packages/dash")
-(require 'dash)
-
-(add-to-list 'load-path "~/.emacs.d/packages/projectile-mode")
-(load-file "~/.emacs.d/packages/projectile-mode/projectile.el")
-
 (defun is-in-terminal()
   (not (display-graphic-p)))
 
-(add-to-list 'load-path "~/.emacs.d/packages/evil")
-(require 'evil)
-
-(add-to-list 'load-path "~/.emacs.d/packages/powerline")
-(require 'powerline)
-(powerline-center-evil-theme)
-;; ;
-(powerline-evil-theme)
-
-(add-to-list 'load-path "~/.emacs.d/packages/elixir")
-(require 'elixir-mode)
-
-(load-file "~/.emacs.d/packages/gnuplot-mode/gnuplot.el")
 
 ;; active Babel languages
 (org-babel-do-load-languages
@@ -297,8 +255,8 @@ With a prefix arg, changes to grouping by major mode."
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-
-(let* ((variable-tuple (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+(when (display-graphic-p) 
+  (let* ((variable-tuple (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
                              ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
                              ((x-list-fonts "Verdana")         '(:font "Verdana"))
                              ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
@@ -315,7 +273,8 @@ With a prefix arg, changes to grouping by major mode."
                           `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
                           `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
                           `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
-                          `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
+                          `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil)))))))
+
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
@@ -323,3 +282,6 @@ With a prefix arg, changes to grouping by major mode."
 (setq alchemist-compile-command "/usr/local/bin/elixirc") ;; default: elixirc
 (setq alchemist-iex-program-name "/usr/local/bin/iex") ;; default: iex
 
+
+(add-hook 'after-init-hook 'global-company-mode)
+(add-to-list 'package-pinned-packages '(alchemist . "melpa-stable") t)
