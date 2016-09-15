@@ -2,12 +2,12 @@
 
   )
 
-
 ;; etags-select
 (global-set-key (kbd "M-.") 'etags-select-find-tag-at-point)
 (global-set-key (kbd "M-?") 'etags-select-find-tag)
 
 ;; ibuffer
+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Invoke M-x without the Alt key
@@ -65,7 +65,7 @@
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
 
-(global-set-key [f8] 'neotree-toggle)
+
 
 (global-set-key (kbd "S-s-<right>") 'tabbar-forward-tab)
 (global-set-key (kbd "S-s-<left>") 'tabbar-backward-tab)
@@ -75,3 +75,7 @@
 
 
 (global-set-key (kbd "s-o") 'ido-find-file)
+
+;; InjtelliJ
+(global-set-key (kbd "s-1") 'neotree-toggle)
+(global-set-key (kbd "s-e") 'ibuffer)
