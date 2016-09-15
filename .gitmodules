@@ -1,6 +1,3 @@
-[submodule "packages/swift-mode"]
-	path = packages/swift-mode
-	url = git@github.com:chrisbarrett/swift-mode.git
 [submodule "packages/popwin-el"]
 	path = packages/popwin-el
 	url = git@github.com:m2ym/popwin-el.git
@@ -16,24 +13,12 @@
 [submodule "packages/yaml-mode"]
 	path = packages/yaml-mode
 	url = git@github.com:yoshiki/yaml-mode.git
-[submodule "packages/tabbar-mode"]
-	path = packages/tabbar-mode
-	url = https://github.com/dholm/tabbar.git
-[submodule "packages/inf-ruby"]
-	path = packages/inf-ruby
-	url = git@github.com:nonsequitur/inf-ruby.git
-[submodule "packages/neotree"]
-	path = packages/neotree
-	url = https://github.com/jaypei/emacs-neotree.git
 [submodule "yari.el"]
 	path = yari.el
 	url = git@github.com:hron/yari.el.git
 [submodule "packages/yari"]
 	path = packages/yari
 	url = git@github.com:hron/yari.el.git
-[submodule "packages/textile-mode"]
-	path = packages/textile-mode
-	url = git@github.com:juba/textile-mode.git
 [submodule "packages/org-textile"]
 	path = packages/org-textile
 	url = git@github.com:yashi/org-textile.git
@@ -43,6 +28,3 @@
 [submodule "packages/org-bullets"]
 	path = packages/org-bullets
 	url = git@github.com:sabof/org-bullets.git
-[submodule "packages/restclient"]
-	path = packages/restclient
-	url = git@github.com:pashky/restclient.el.git

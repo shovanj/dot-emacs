@@ -79,7 +79,7 @@
  '(org-export-latex-listings t)
  '(package-selected-packages
    (quote
-    (git-timemachine flx-ido flx ace-window avy powerline projectile deft evil gnuplot-mode elixir-yasnippets magit exec-path-from-shell alchemist auto-complete)))
+    (inf-ruby restclient tabbar neotree htmlize git-timemachine flx-ido flx ace-window avy powerline projectile deft evil gnuplot-mode elixir-yasnippets magit exec-path-from-shell alchemist auto-complete)))
  '(tabbar-separator (quote (1.0)))
  '(tabbar-use-images t))
 (custom-set-faces
@@ -116,12 +116,6 @@
 ;; (setq ac-auto-start 2)
 ;; ; case sensitivity is important when finding matches
 ;; (setq ac-ignore-case nil)
-
-(add-to-list 'load-path "~/.emacs.d/packages/htmlize")
-(require 'htmlize)
-
-(add-to-list 'load-path "~/.emacs.d/packages/swift-mode")
-(require 'swift-mode)
 
 (add-to-list 'load-path "~/.emacs.d/packages/popwin-el")
 (require 'popwin)
@@ -172,12 +166,6 @@
       ediff-window-setup-function 'ediff-setup-windows-plain)
 
 
-(add-to-list 'load-path "~/.emacs.d/packages/neotree")
-(require 'neotree)
-
-
-(add-to-list 'load-path "~/.emacs.d/packages/tabbar-mode")
-(require 'tabbar)
 (tabbar-mode)
 
 (add-to-list 'load-path "~/.emacs.d/packages/yari")
@@ -221,10 +209,6 @@ With a prefix arg, changes to grouping by major mode."
 
 (setq ido-ignore-directories
             '("Applications/" "Documents/" "Library/" "Movies/" "Music/" "Pictures/" "Public/"))
-
-(add-to-list 'load-path "~/.emacs.d/packages/textile-mode")
-(require 'textile-mode)
-(add-to-list 'auto-mode-alist '("\\.textile\\'" . textile-mode))
 
 
 (add-to-list 'load-path "~/.emacs.d/packages/org-textile/")
