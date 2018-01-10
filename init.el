@@ -267,7 +267,7 @@ With a prefix arg, changes to grouping by major mode."
 (setq alchemist-iex-program-name "/usr/local/bin/iex") ;; default: iex
 
 
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
 (add-to-list 'package-pinned-packages '(alchemist . "melpa-stable") t)
 
 (require 'evil)
